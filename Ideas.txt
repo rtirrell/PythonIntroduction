@@ -1,0 +1,12 @@
+Introduction/Teaching 
+  - Fibonacci
+
+Project (if we organize like this)
+  - Command-line Google fight
+  - Twitter client
+  - Simple websites
+  - Image manipulation (with PIL)
+  - PDF generation (with ReportLab)
+  - "Find duplicated words in your essay", suggest alternatives (we'd provide an implementation of the Porter stemmer, they'd code the find duplicates and request synonyms from web service parts).
+
+
