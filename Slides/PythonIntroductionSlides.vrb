@@ -1,0 +1,14 @@
+\frametitle {Digging In}
+  \framesubtitle{Methods (2)}
+  \begin{block}{A Few More Examples}
+    \begin{itemize}
+      \item Many of Python's datatypes support this sort of access (called indexing):
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}string}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+  \PY{c}{# >>> 'U'}
+\end{Verbatim}
+      \item This is an important point: in Python, the first element of a collection is the ``0th'' one, available at \texttt{collection[0]}.
+      \item Similarly, we can access the second element of a list with \texttt{some\_list[1]}.
+
+    \end{itemize}
+  \end{block}

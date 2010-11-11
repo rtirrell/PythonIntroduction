@@ -1,0 +1,245 @@
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage{newcent}
+
+\usepackage{fancyvrb}
+\usepackage{color}
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\def\PY@tok@nl{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@ne{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@si{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@kc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@err{\def\PY@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
+\def\PY@tok@kd{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@gp{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@o{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kr{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\def\PY@tok@ow{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@k{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@se{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\def\PY@tok@sd{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+
+\title{Introduction to Programming with Python}
+\subtitle{Riding the Serpent}
+\author{Rob Tirrell (r.tirrell@gmail.com)\\ Anshul Nigham (nigham@gmail.com)}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is Python?}
+  \centering
+  \includegraphics[scale=0.5]{PythonLogo.png} \\
+  \begin{itemize}
+    \item ``Invented'' in 1991 by Guido van Rossum (GvR).
+    \item An interpreted, high-level language with flexible typing.
+    \item Currently on its third major release... in other words, very mature.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Satisfied User}
+  \small
+  \begin{quote}
+      ``Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language.''
+  \end{quote}
+  \begin{flushright}
+    -- Peter Norvig, Director of Search Quality at Google and Computer Science Superstar
+  \end{flushright}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other Satisfied Users}
+  \begin{itemize}
+    \item \textbf{AstraZeneca} uses Python in drug discovery pipelines.
+    \item \textbf{Phillips'} fabrication plants are managed in Python.
+    \item \textbf{Industrial Light \& Magic} (Star Wars) employs Python for process management.
+    \item It may be new to you, but according to TIOBE's programming languages index, Python is the sixth-most popular in the world.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{What's in it for You?}
+    All of these organizations seem to like it, why should \textit{you} care?
+  \begin{block}{Power}
+    \begin{itemize}
+      \item Python facilitates rapid development, and comes preinstalled with a huge collection of libraries (add-on software) for pretty much anything within reason.
+      \item There is a huge Python community and ecosystem, who will have already solved many of the problems you might encounter.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Clarity}
+    \begin{itemize}
+      \item Python is remarkably clear and readable compared to many other languages.
+      \item The logical flow of a program is often very intuitive, and the design philosophy
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Longstanding Tradition}
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello World}\PY{l+s}{'}
+\end{Verbatim}
+\end{frame}
+  
+
+\begin{frame}
+  \frametitle{Digging In}
+  \framesubtitle{Datatypes (1)}
+  \begin{block}{What are They?}
+    \begin{itemize}
+      \item A \textbf{datatype} refers to a location in the computer's memory and the type of information stored there.
+      \item Numbers can be of the integer datatype, like 4, or a floating-point datatype, like 4.0).
+      \item Text is the string datatype, like "Four score and seven years ago...".
+      \item True-false values are boolean datatypes, in Python these are \texttt{true} and \texttt{false}.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Digging In}
+  \framesubtitle{Datatypes (2)}
+  \begin{block}{More Advanced Datatypes}
+    \begin{itemize}
+      \item Obviously, more complex programs require more complex datatypes. 
+      \item The two most important in Python are lists and dictionaries.
+      \item A list: 
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{monkeys}\PY{l+s}{'}\PY{p}{]}
+\end{Verbatim}
+      \item A dictionary:
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s}{'}\PY{l+s}{New York}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{A state in the US.}\PY{l+s}{'}\PY{p}{,} 
+    \PY{l+m+mi}{42}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{A completely irrelevant number.}\PY{l+s}{'}\PY{p}{,} 
+    \PY{n}{today\PYZus{}is\PYZus{}sunday}\PY{p}{:} \PY{n}{false}
+  \PY{p}{\PYZcb{}} 
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Digging In}
+  \framesubtitle{Methods (1)}
+  \begin{block}{Making Things Happen}
+    \begin{itemize}
+      \item \textbf{Methods} are procedures that work on variables to transform or otherwise alter them.
+      \item Change a string to all uppercase:
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}string} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{julius}\PY{l+s}{'}
+  \PY{n}{some\PYZus{}string} \PY{o}{=} \PY{n}{some\PYZus{}string}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}
+  \PY{c}{# some\PYZus{}string is now 'JULIUS'}
+\end{Verbatim}
+
+      \item Access some entry (sometimes called an element) in a dictionary:
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}dict}\PY{p}{[}\PY{l+m+mi}{42}\PY{p}{]}
+  \PY{c}{# >>> 'A completely irrelevant number'}
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Digging In}
+  \framesubtitle{Methods (2)}
+  \begin{block}{A Few More Examples}
+    \begin{itemize}
+      \item Many of Python's datatypes support this sort of access (called indexing):
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PY{n}{some\PYZus{}string}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+  \PY{c}{# >>> 'U'}
+\end{Verbatim}
+      \item This is an important point: in Python, the first element of a collection is the ``0th'' one, available at \texttt{collection[0]}.
+      \item Similarly, we can access the second element of a list with \texttt{some\_list[1]}.
+    
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+
+
+
+\end{document}
