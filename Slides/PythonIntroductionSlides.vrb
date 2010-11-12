@@ -1,14 +1,13 @@
-\frametitle {Digging In}
-  \framesubtitle{Methods (2)}
-  \begin{block}{A Few More Examples}
+\frametitle {Importing and Using Modules (4)}
+  \begin{block}{Picking Sides}
     \begin{itemize}
-      \item Many of Python's datatypes support this sort of access (called indexing):
+      \item Let's shuffle the list, and then save the number of players in a variable \texttt{number\_of\_players} using the builtin \texttt{len} function.\footnote{\texttt{len(object)} is really just a proxy for the method call \texttt{object.\_\_len\_\_()}. This is also the case for operators, e.g., \texttt{object[i]}, which just calls \texttt{object.\_\_getitem\_\_(i)} behind the scenes, and \texttt{object + 1} becomes \texttt{object.\_\_add\_\_(1)}.}.
 \begin{Verbatim}[commandchars=\\\{\}]
-  \PY{n}{some\PYZus{}string}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
-  \PY{c}{# >>> 'U'}
+\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{lottery\PYZus{}players}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Team 1:}\PY{l+s}{'}
+\PY{k}{print} \PY{n}{lottery\PYZus{}players}\PY{p}{[}\PY{p}{:}\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{]}
+\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Team 2:}\PY{l+s}{'}
+\PY{k}{print} \PY{n}{lottery\PYZus{}players}\PY{p}{[}\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
 \end{Verbatim}
-      \item This is an important point: in Python, the first element of a collection is the ``0th'' one, available at \texttt{collection[0]}.
-      \item Similarly, we can access the second element of a list with \texttt{some\_list[1]}.
-
     \end{itemize}
   \end{block}
