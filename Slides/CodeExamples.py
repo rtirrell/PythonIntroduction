@@ -19,9 +19,16 @@ some_dict[42]
 some_string[1]
 # >>> 'U'
 
+some_list[1]
+# >>> 'monkey'
+
+print 'Hello, World!'
+print "Hello, World!"
+print('Hello, World!')
+
 # This function has no parameters and...
 def test_func_1():
-  return 'returns a string.'
+  print "I'm useless!"
 
 # This function has no parameters and returns None.
 def test_func_2():
@@ -80,6 +87,15 @@ var = {
   'aardvark': 'a nocturnal burrower from Africa',
   'antbear': 'another name for an aardvark'
 }
+
+class MyTestClass:
+  def __init__(self, name):
+    self.name = name
+  def say_hello(self, other_name):
+    print self.name + ' says hi to ' + other_name
+my_test_class_instance = MyTestClass('Rocko')
+my_test_class_instance.say_hello('Clarissa')
+# >>> 'Rocko says hi to Clarissa'
 
 # Module that generates random numbers (among other things).
 import random 

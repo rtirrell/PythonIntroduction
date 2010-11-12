@@ -132,7 +132,7 @@
   \begin{block}{Rob Tirrell}
     \begin{itemize}
       \item Second-year grad student in Biomedical Informatics here at Stanford.
-      \item Works in the Butte lab, an entirely ``dry'' lab (computers only -- the only other equipment necessary is a coffee machine).
+      \item Works in the Butte lab (\href{http://buttelab.stanford.edu/}{http://buttelab.stanford.edu/}), an entirely 'dry' lab (computers only -- the only other equipment necessary is a coffee machine).
       \item First language was Python, spends most days writing code in R, Python, Ruby and C++.
     \end{itemize}
   \end{block}
@@ -167,8 +167,9 @@
     \item \textbf{AstraZeneca} uses Python in drug discovery pipelines.
     \item \textbf{Phillips'} fabrication plants are managed in Python.
     \item \textbf{Industrial Light \& Magic} (Star Wars) employs Python for process management.
-    \item TODO: anecdotes from our work experiences.
+    \item In \textbf{Rob's} work, people use Python at every point in the research pipeline (preprocessing and sanitization, standard analyses, data aggregation and integration, and so forth).
     \item It may be new to you, but according to TIOBE's programming languages index, Python is the sixth-most popular in the world.
+    \item A list of anecdotes can't quite prove a point, so we'll try to justify why you should care about and use Python.
   \end{itemize}
 \end{frame}
 
@@ -194,9 +195,11 @@
   \begin{block}{What are They?}
     \begin{itemize}
       \item A \textbf{datatype} refers to a location in the computer's memory and the type of information stored there.
-      \item Numbers can be of the integer datatype, like \texttt{4}, or a floating-point datatype, like \texttt{4.0}).
-      \item Text uses the string datatype, like \texttt{'Four score and seven years ago...'}.
-      \item True-false values are boolean datatypes, in Python these are \texttt{True} and \texttt{False}.
+      \item Numbers can be of the \texttt{int} (integer) datatype, like \texttt{4}, or the \texttt{float} (floating point) datatype, like \texttt{4.0}).
+      \item Text uses the \texttt{string} datatype, like \texttt{'Four score and seven years ago...'}.
+      \item True and false values are \texttt{bool} (boolean) datatypes, in Python these are \texttt{True} and \texttt{False}.
+        There is also a special value called \texttt{None}, that indicates 'no value'.
+      \item We can view the type of any variable using \texttt{type}, so \texttt{type('bananagram')} is \texttt{$<$type 'string'$>$}.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -206,7 +209,7 @@
   \begin{block}{More Advanced Datatypes}
     \begin{itemize}
       \item Obviously, more complex programs require more complex datatypes (depending on the complexity, they may be referred to as 'data structures').
-      \item The two most important in Python are lists and dictionaries.
+      \item The two most important in Python are the \texttt{list} and \texttt{dict} (dictionary).
       \item A list: 
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{some\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{monkeys}\PY{l+s}{'}\PY{p}{]}
@@ -245,16 +248,40 @@
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
         \normalsize
-      \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int} and \texttt{float}), and so on.
+      \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}), and so on.
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{Datatypes (4)}
+  \begin{block}{Rolling Our Own Classes}
+    \begin{itemize}
+      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary and have a set of methods to manipulate that data.
+        \footnotesize
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{MyTestClass}\PY{p}{:}
+  \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{name}\PY{p}{)}\PY{p}{:}
+    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{n}{name}
+  \PY{k}{def} \PY{n+nf}{say\PYZus{}hello}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other\PYZus{}name}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{ says hi to }\PY{l+s}{'} \PY{o}{+} \PY{n}{other\PYZus{}name}
+\PY{n}{my\PYZus{}test\PYZus{}class\PYZus{}instance} \PY{o}{=} \PY{n}{MyTestClass}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Rocko}\PY{l+s}{'}\PY{p}{)}
+\PY{n}{my\PYZus{}test\PYZus{}class\PYZus{}instance}\PY{o}{.}\PY{n}{say\PYZus{}hello}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Clarissa}\PY{l+s}{'}\PY{p}{)}
+\PY{c}{# >>> 'Rocko says hi to Clarissa'}
+\end{Verbatim}
+      \normalsize
+      \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
+        Any book on Python will have a more thorough discussion of classes.
+    \end{itemize}
+  \end{block}
+\end{frame}
+      
+
+\begin{frame}[fragile]
   \frametitle{Introduction to Functions and Methods (1)}
   \begin{block}{Making Things Happen}
     \begin{itemize}
-      \item \textbf{Methods} and \textbf{functions}\footnote{There is a distinction: methods are attached to and operate on their objects, while functions stand alone. Don't worry too much about this now, we'll come back to it later.} are procedures that work on variables to transform or otherwise alter them.
+      \item \textbf{Functions} and \textbf{methods}\footnote{There is a difference: methods are attached to and operate on their objects, while functions stand alone. e.g., \texttt{say\_hello} in the class on the preceding page was a \texttt{method} associated with \texttt{MyTestClass} objects. Don't worry too much about this now, we'll come back to it later (and in this course will only write functions, anyway).} are procedures that work on variables to transform or otherwise alter them.
       \item Change a string to all uppercase:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{some\PYZus{}string} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{julius}\PY{l+s}{'}
@@ -262,7 +289,7 @@
 \PY{n}{some\PYZus{}string}
 \PY{c}{# >>> 'JULIUS'}
 \end{Verbatim}
-      \item Access some entry (sometimes called an element) in a dictionary:
+      \item Access an entry (sometimes called an element) of a dictionary:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{some\PYZus{}dict}\PY{p}{[}\PY{l+m+mi}{42}\PY{p}{]}
 \PY{c}{# >>> 'A completely irrelevant number'}
@@ -275,13 +302,17 @@
   \frametitle{Introduction to Functions and Methods (2)}
   \begin{block}{A Few More Examples}
     \begin{itemize}
-      \item Many of Python's datatypes support this sort of access (called indexing), which behind-the-scenes is just a regular method call:
+      \item Many of Python's datatypes support this sort of access (called indexing).
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{some\PYZus{}string}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
 \PY{c}{# >>> 'U'}
 \end{Verbatim}
-      \item This is an important point: in Python, the first element of a collection is the ``\texttt[0]th'' one, available at \texttt{collection[0]}.
-      \item Similarly, we can access the second element of a list with \texttt{some\_list[1]}.
+      \item This is an important point: in Python, the first element of a collection is the \texttt{[0]}th'' one, available at \texttt{collection[0]}.
+      \item Similarly, for lists:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{some\PYZus{}list}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+\PY{c}{# >>> 'monkey'}
+\end{Verbatim}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -306,15 +337,17 @@
   \frametitle{The Interpreter (2)}
   \begin{block}{The \texttt{print} Function}
     \begin{itemize}
-      \item Strings are surrounded by single (') or double (``) quotes, which are equivalent
+      \item Strings are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular string).
+        e.g., if you want a string to have a contraction \texttt{"mustn't"}, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
       \item \texttt{print} is a core Python function, which by default outputs text to the screen. It's somewhat special, in that parentheses are optional when using (calling) it.
     \end{itemize}
   \end{block}
   \begin{block}{A Longstanding Tradition}
-      Two equivalent Hello Worlds:
+      Three equivalent \texttt{'Hello, World!'}:
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello World}\PY{l+s}{'}
-\PY{k}{print}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Hello World}\PY{l+s}{'}\PY{p}{)}
+\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello, World!}\PY{l+s}{"}
+\PY{k}{print}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}\PY{p}{)}
 \end{Verbatim}
   \end{block}
 \end{frame}
@@ -328,18 +361,19 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Functions}
-    \begin{block}{Writing Your Own with \texttt{def}}
-      \begin{itemize}
-        \item The \texttt{def} keyword is used to create new functions.
-        \item Functions always \texttt{return} a value, which might be nothing (\texttt{None} in Python).
-      \end{itemize}
-\small
+  \frametitle{Functions (1)}
+  \begin{block}{Writing Your Own with \texttt{def}}
+    \begin{itemize}
+      \item The \texttt{def} keyword is used to create new functions.
+      \item Functions always \texttt{return} a value. 
+        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly return \texttt{None}.
+        \small
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{# This function has no parameters and...}
 \PY{k}{def} \PY{n+nf}{test\PYZus{}func\PYZus{}1}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-  \PY{k}{return} \PY{l+s}{'}\PY{l+s}{returns a string.}\PY{l+s}{'}
+  \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I}\PY{l+s}{'}\PY{l+s}{m useless!}\PY{l+s}{"}
 \end{Verbatim}
+    \end{itemize}
   \end{block}
 \end{frame}
 
@@ -572,7 +606,7 @@
   \frametitle{Importing and Using Modules (4)}
   \begin{block}{Picking Sides}
     \begin{itemize}
-      \item Let's shuffle the list, and then save the number of players in a variable \texttt{number\_of\_players} using the builtin \texttt{len} function.\footnote{\texttt{len(object)} is really just a proxy for the method call \texttt{object.\_\_len\_\_()}. This is also the case for operators, e.g., \texttt{object[i]}, which just calls \texttt{object.\_\_getitem\_\_(i)} behind the scenes, and \texttt{object + 1} becomes \texttt{object.\_\_add\_\_(1)}.}.
+      \item Let's shuffle the list, and then save the number of players in a variable \texttt{number\_of\_players} using the builtin \texttt{len} function.\footnote{\texttt{len(object)} is really just a proxy for the method call \texttt{object.\_\_len\_\_()}. This is also the case for some of the operators we've seen, e.g., \texttt{object[i]}, which just calls \texttt{object.\_\_getitem\_\_(i)} behind the scenes, and \texttt{object + 1} becomes \texttt{object.\_\_add\_\_(1)}.}.
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{lottery\PYZus{}players}\PY{p}{)}
 \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Team 1:}\PY{l+s}{'}
@@ -630,7 +664,7 @@
     \item We hope this little taste of the joys of programming whetted your appetite -- if so, this is the best place in the world to be.
     \item If you have any questions about Python, programming, or computer science in general, feel free to email either of us.
     \item Anshul: \href{mailto:anshul@gmail.com}{anshul@gmail.com}, Rob: \href{mailto:rpt@stanford.edu}{rpt@stanford.edu}.
-    \item \texttt{\textbf{print 'Thank you!'}}
+    \item \texttt{\textbf{print 'Farewell, and godspeed!'}}
   \end{itemize}
 \end{frame}
 
