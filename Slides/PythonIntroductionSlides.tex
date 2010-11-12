@@ -112,7 +112,6 @@
 \makeatother
 
 
-
 \begin{document}
 
 \begin{frame}
@@ -124,15 +123,13 @@
   \frametitle{About Us}
   \begin{block}{Anshul Nigham}
     \begin{itemize}
-      \item Works somewhere and does something.
-      \item Look, it's relevant.
-      \item And he's qualified! :)
+      \item Began programming at 12 on on 8086 PC-XT (a full-fledged computer 20x slower than an iPhone).
+      \item Converts caffeine into code for a living at Yahoo.
     \end{itemize}
   \end{block}
   \begin{block}{Rob Tirrell}
     \begin{itemize}
-      \item Second-year grad student in Biomedical Informatics here at Stanford.
-      \item Works in the Butte lab (\href{http://buttelab.stanford.edu/}{http://buttelab.stanford.edu/}), an entirely 'dry' lab (computers only -- the only other equipment necessary is a coffee machine).
+      \item In the second year of a five to six year sentence in the Butte lab (\href{http://buttelab.stanford.edu/}{http://buttelab.stanford.edu/}), an entirely 'dry' lab (computers only -- the only other equipment necessary is a coffee machine).
       \item First language was Python, spends most days writing code in R, Python, Ruby and C++.
     \end{itemize}
   \end{block}
@@ -146,18 +143,18 @@
     \item First released in 1991 by a Dutchman named Guido van Rossum (GvR).
     \item That's Self-Appointed Benevolent Dictator for Life (SABDFL) van Rossum to the rest of us.
     \item An interpreted, high-level language with flexible typing.
-    \item Currently on its third major release... in other words, very mature.
+    \item Currently on its third major release... in other words, it's been around the block and has withstood the test of time.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{A Satisfied User}
-  \small
   \begin{quote}
-      ``Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language.''
+      Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language.
   \end{quote}
   \begin{flushright}
-    -- Peter Norvig, Director of Search Quality at Google and Computer Science Superstar
+    \footnotesize
+    -- Peter Norvig, Director of Search Quality at Google \\ and Computer Science Superstar
   \end{flushright}
 \end{frame}
 
@@ -167,6 +164,7 @@
     \item \textbf{AstraZeneca} uses Python in drug discovery pipelines.
     \item \textbf{Phillips'} fabrication plants are managed in Python.
     \item \textbf{Industrial Light \& Magic} (Star Wars) employs Python for process management.
+    \item At \textbf{Yahoo}, \textbf{Anshul} developed an AdWords optimizer in Python.
     \item In \textbf{Rob's} work, people use Python at every point in the research pipeline (preprocessing and sanitization, standard analyses, data aggregation and integration, and so forth).
     \item It may be new to you, but according to TIOBE's programming languages index, Python is the sixth-most popular in the world.
     \item A list of anecdotes can't quite prove a point, so we'll try to justify why you should care about and use Python.
@@ -179,13 +177,71 @@
     \begin{itemize}
       \item Python facilitates rapid development.
         It comes with a huge collection of software (libraries) for many purposes.
-      \item There is a large, vibrant Python community/ecosystem.
+      \item There is a sizeable, vibrant and very helpful Python community/ecosystem, should you run into trouble or seek advice.
     \end{itemize}
   \end{block}
   \begin{block}{Clarity}
     \begin{itemize}
       \item Python is remarkably clear and readable compared to many other languages.
       \item It actually takes some effort to write difficult-to-understand programs.
+    \end{itemize}
+  \end{block}
+  Before we can reveal Python, let's consider the high-level \textbf{process and principles of programming} (trust us, we know they're abstract and seemingly useless, but it's critical to really get what they mean).
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (1)}
+  \begin{quote}
+    \textbf{Computer programming} or \textbf{coding} is the process of designing, writing, testing, debugging/troubleshooting, and maintaining the source code of computer programs. 
+    This source code is written in a programming language. The purpose of programming is to create a program that exhibits a certain desired behaviour. 
+    The process of writing source code often requires expertise in many different subjects, including knowledge of the application domain, specialized algorithms and formal logic.
+  \end{quote}
+  \begin{flushright}
+    \footnotesize -- Wikipedia
+  \end{flushright}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (2)}
+  \begin{block}{Decomposition}
+    \begin{itemize}
+      \item \textbf{Decomposition} is the means by which a complex problem or system is broken down into parts that are easier to conceive, understand, program and maintain.
+      \item This is one of the fundamental principles of design and programming: we decompose the logical structure into smaller, reusable units which we build one-at-a-time.
+      \item Sometimes, how this decomposition should proceed isn't immediately clear.
+        Then your first step should be thinking in depth about the problem you're facing, and in what ways it can be reduced into component subproblems.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (3)}
+  \centering
+  \includegraphics[width=300px]{LinuxKernelMap.png}
+  \begin{flushright} 
+    \footnotesize -- Wikipedia
+  \end{flushright}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (4)}
+  \begin{block}{Divide and Conquer}
+    \begin{itemize}
+      \item Imagine you are a pin manufacturer in 18th century England.
+        To achieve maximum efficiency, you will make pins step-by-step: pounding the metal into a sheet, cutting the sheet into small strips, heating the protopins, elongating the pins, punching an eyelet, polishing the pins, etc..
+      \item This is simple enough: just a stepwise series of transformations.
+        More often, a computer program will be more complex, and have multiple interdependent parts.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (5)}
+  \begin{block}{Thinking about a Twitter iPhone App}
+    \begin{itemize}
+      \item Let's motivate this with an example.
+      \item Break into groups with your nearest neighbors and discuss how you would design this application.
+      \item What are the application and user operations we would want to support, and what are their requirements?
     \end{itemize}
   \end{block}
 \end{frame}
@@ -355,7 +411,7 @@
 \begin{frame}
   \frametitle{Brief Interlude: Setting Up KomodoEdit}
   \begin{center}
-    \includegraphics[width=240px]{KomodoEdit.png}
+    \includegraphics[width=300px]{KomodoEdit.png}
   \end{center}
   KomodoEdit should already be installed on the provided computers, if not, visit \href{http://www.activestate.com/komodo-edit/downloads}{http://www.activestate.com/komodo-edit/downloads} to grab it.
 \end{frame}
@@ -619,13 +675,19 @@
 \end{frame}
     
 
-
 \begin{frame}
   \frametitle{Choose Your Own Adventure}
   We have a couple of choices for what to do next. We can:
   \begin{itemize}
-    \item Write a program that analyzes a document for duplicated words, featuring a brief introduction to natural-language processing (NLP) theory and techniques.
+    \item Write a program that analyzes word usage in a document, featuring a brief introduction to natural-language processing (NLP) theory and techniques.
     \item Write a program that uses Google web services to 'fight' terms against each other (in the spirit of \href{www.googlefight.com}{Google Fight}).
+    \item Mangling Mark Twain: code a 'random writer' that reads a document and generates a somewhat sensible-sounding babble based on it. \\
+      \begin{quote}
+        \small
+        By jingo! that reminds me of a droll dog of a thieving line-- the high standard held up to the mode in which her mouth and brow there was something alien and ill-understood the impetuosity.  
+        His reason for hastening it--if he scrupulous explorer to be saluted with those cheerful view of all the plans, and took lasting impression of Celia, Tantripp, stooping and getting a bit of a note saying you don't see anything of that sort of challenge me.
+      \end{quote}
+      \raggedleft\footnotesize -- Generated from \emph{Middlemarch} by Mary Ann Evans
   \end{itemize}
 \end{frame}
 
@@ -652,7 +714,7 @@
 \begin{frame}
   \frametitle{... And a Universe of Other Languages}
   \begin{center}
-    \includegraphics[width=305px]{ProgrammingLanguagesPoster-AnnotatedCropped.png} \\
+    \includegraphics[width=300px]{ProgrammingLanguagesPoster-AnnotatedCropped.png} \\
     \tiny 
     Image credit: O'Reilly (\href{http://oreilly.com/news/graphics/prog\_lang\_poster.pdf}{http://oreilly.com/news/graphics/prog\_lang\_poster.pdf})
   \end{center}
