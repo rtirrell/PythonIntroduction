@@ -1,12 +1,12 @@
 Introduction/Teaching 
-  - Fibonacci
+  - Fibonacci.
+  - String Formatting.
 
 Project (if we organize like this)
   - Command-line Google fight (DONE).
-  - /- Twitter client (probably too complex, OAuth now required). -/
   - Simple websites (DONE).
   - Image manipulation (with PIL).  But installation might be a bit too involved/time-consuming.
   - PDF generation (with ReportLab)
-  - "Find duplicated words in your essay", suggest alternatives.  We'd provide an implementation of the Porter stemmer, they'd code the find duplicates and request synonyms from web service parts.  A slightly-modified implementation of Porter is in py/, stemming and counting code DONE, synonym fetching TODO.
+  - "Find duplicated words in your essay", suggest alternatives.  We'd provide an implementation of the Porter stemmer, they'd code the find duplicates and request synonyms from web service parts.  A slightly-modified implementation of Porter is in py/, stemming and counting code DONE, synonym fetching TODO (maybe?).
 
 
