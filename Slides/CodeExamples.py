@@ -10,16 +10,14 @@ some_dict = {
 
 some_string = 'julius'
 some_string = some_string.upper()
-# some_string is now 'JULIUS'
+some_string
+# >>> 'JULIUS'
 
 some_dict[42]
 # >>> 'A completely irrelevant number'
 
 some_string[1]
 # >>> 'U'
-
-print("Racecar")
-print('hi')
 
 # This function has no parameters and...
 def test_func_1():
@@ -107,3 +105,6 @@ print 'Team 1:'
 print lottery_players[:number_of_players / 2]
 print 'Team 2:'
 print lottery_players[number_of_players / 2:]
+
+favorite_color = \
+  raw_input('What is your favourite color? ')

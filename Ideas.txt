@@ -1,6 +1,7 @@
 Introduction/Teaching 
   - Fibonacci.
   - String Formatting.
+  - Default and keyword argument passing.
 
 Project (if we organize like this)
   - Command-line Google fight (DONE).
