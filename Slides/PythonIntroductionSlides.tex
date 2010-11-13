@@ -1,9 +1,13 @@
 \documentclass[10pt]{beamer}
 
 \usepackage{helvet}
+
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{pdfsync}
 \usepackage{ulem}
+
+\usepackage{minted}
 
 \title{Introduction to Programming with Python}
 \subtitle{Riding the Serpent}
@@ -26,102 +30,18 @@
 % Get rid of navigation symbols.
 \setbeamertemplate{navigation symbols}{}
 
+\renewcommand{\theFancyVerbLine}{
+  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+\newminted{python}{mathescape, linenos, numbersep=8pt, gobble=0, frame=lines, framesep=2mm}
 
-\usepackage{fancyvrb}
-\usepackage{color}
-
-\makeatletter
-\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
-    \let\PY@ul=\relax \let\PY@tc=\relax%
-    \let\PY@bc=\relax \let\PY@ff=\relax}
-\def\PY@tok#1{\csname PY@tok@#1\endcsname}
-\def\PY@toks#1+{\ifx\relax#1\empty\else%
-    \PY@tok{#1}\expandafter\PY@toks\fi}
-\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
-    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
-\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
-
-\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
-\def\PY@tok@gs{\let\PY@bf=\textbf}
-\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
-\def\PY@tok@ge{\let\PY@it=\textit}
-\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
-\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
-\def\PY@tok@nl{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
-\def\PY@tok@nn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
-\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
-\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@nc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
-\def\PY@tok@ne{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
-\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\def\PY@tok@si{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
-\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\def\PY@tok@kc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@err{\def\PY@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
-\def\PY@tok@kd{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
-\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@kn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@gp{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\def\PY@tok@o{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PY@tok@kr{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
-\def\PY@tok@ow{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
-\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\def\PY@tok@k{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\def\PY@tok@se{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
-\def\PY@tok@sd{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-
-\def\PYZbs{\char`\\}
-\def\PYZus{\char`\_}
-\def\PYZob{\char`\{}
-\def\PYZcb{\char`\}}
-\def\PYZca{\char`\^}
-% for compatibility with earlier versions
-\def\PYZat{@}
-\def\PYZlb{[}
-\def\PYZrb{]}
-\makeatother
-
+\usemintedstyle{tango}
 
 \begin{document}
-
 \begin{frame}
   \titlepage
 \end{frame}
 
-\begin{frame}
-  \small
+\begin{frame}[fragile]
   \frametitle{About Us}
   \begin{block}{Anshul Nigham}
     \begin{itemize}
@@ -313,11 +233,11 @@
   \end{block}
   \begin{block}{A Longstanding Tradition}
       Three equivalent \texttt{'Hello, World!'}s:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello, World!}\PY{l+s}{"}
-\PY{k}{print}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}\PY{p}{)}
-\end{Verbatim}
+      \begin{pythoncode}
+  print 'Hello, World!'
+  print "Hello, World!"
+  print("Hello, World!")
+      \end{pythoncode}
   \end{block}
 \end{frame}
 
@@ -411,21 +331,17 @@
     \begin{itemize}
       \item Obviously, more complex programs require more complex datatypes (also referred to as 'data structures').
       \item The two most important in Python are the \texttt{list} and \texttt{dict} (dictionary).
-      \item A list: 
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{teams} \PY{o}{=} \PY{p}{[}
-  \PY{l+s}{'}\PY{l+s}{Montreal Expos}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Washington Nationals}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{San Francisco Giants}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{New York Yankees}\PY{l+s}{'}
-\PY{p}{]}
-\end{Verbatim}
-      \item A dictionary:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{player} \PY{o}{=} \PY{p}{\PYZob{}}
-  \PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{Babe Ruth}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{458}\PY{p}{,} 
-  \PY{l+s}{'}\PY{l+s}{1b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{73}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{2b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{36}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{3b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{hr}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{54}\PY{p}{,} 
-  \PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{172}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{150}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sf}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{0}
-\PY{p}{\PYZcb{}} 
-\end{Verbatim}
+        \begin{pythoncode}
+  teams = [
+    'Montreal Expos', 'Washington Nationals',
+    'San Francisco Giants', 'New York Yankeees'
+  ]
+  player = {
+    'name': 'Babe Ruth', 'ab': 458, 'h': 172,
+    '1b': 73, '2b': 36, '3b': 9, 'hr': 54,
+    'bb': 150, 'hbp': 3, 'sf': 0
+  }
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -436,14 +352,11 @@
     \begin{itemize}
       \item \textbf{Functions} and \textbf{methods}\footnote{There is a difference: methods are attached to and operate on their objects, while functions stand alone. Don't worry too much about this now, we'll come back to it later (and in this course we will only write functions, anyway).} are procedures that work on variables to transform or otherwise alter them.
       \item Many of Python's collection datatypes support element access by index (indexing):
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{]} \PY{c}{# 'Babe Ruth'}
-\end{Verbatim}
+        \mint{python}|player['name'] # 'Babe Ruth'|
+
       \item This is an important point: in Python, the first element of a collection is the \texttt{[0]}th'' one, available at \texttt{collection[0]}.
       \item Similarly, for lists:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{teams}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{# 'Montreal Expos'}
-\end{Verbatim}
+        \mint{python}|teams[0] # 'Montreal Expos'|
     \end{itemize}
   \end{block}
 \end{frame}
@@ -453,17 +366,11 @@
   \begin{block}{A Few More Examples}
     \begin{itemize}
       \item Change a string to all uppercase:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{teams}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)} \PY{c}{# 'MONTREAL EXPOS'}
-\end{Verbatim}
+        \mint{python}|teams[0].upper() # 'MONTREAL EXPOS'|
       \item Add an entry to a list:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{teams}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Krypton Krushers}\PY{l+s}{'}\PY{p}{)}
-\end{Verbatim}
+        \mint{python}|teams.append('Krypton Krushers')|
       \item Compute the sum of a list:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nb}{sum}\PY{p}{(}\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]}\PY{p}{,} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]}\PY{p}{)}
-\end{Verbatim}
+        \mint{python}|sum(player['h'], player['bb']) # 322|
     \end{itemize}
   \end{block}
 \end{frame}
@@ -475,12 +382,11 @@
       \item The \texttt{def} keyword is used to create new functions.
       \item Functions always \texttt{return} a value. 
         Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly \texttt{return None}.
-        \small
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{# This function has no parameters and returns None.}
-\PY{k}{def} \PY{n+nf}{test\PYZus{}func}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I}\PY{l+s}{'}\PY{l+s}{m useless!}\PY{l+s}{"}
-\end{Verbatim}
+        \begin{pythoncode}
+  # This function has no parameters and returns None.
+  def test_func():
+    print "I'm useless!"
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -491,20 +397,20 @@
     \begin{itemize}
       \item If we represent a player as in the \texttt{dict}ionary above, we can then write functions that calculates any player's stats:
         \footnotesize
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{calculate\PYZus{}sp}\PY{p}{(}\PY{n}{player}\PY{p}{)}\PY{p}{:}
-  \PY{n}{bases} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{2b}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PYZbs{}
-    \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{3b}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{4} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hr}\PY{l+s}{'}\PY{p}{]}
-  \PY{k}{return} \PY{n}{bases} \PY{o}{/} \PY{n+nb}{float}\PY{p}{(}\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{]}\PY{p}{)}
+        \begin{pythoncode}
+  def calculate_sp(player):
+    bases = player['h'] + 2 * player['2b'] + \
+      3 * player['3b'] + 4 * player['hr']
+    return bases / float(player['ab'])
 
-\PY{k}{def} \PY{n+nf}{calculate\PYZus{}obp}\PY{p}{(}\PY{n}{player}\PY{p}{)}\PY{p}{:}
-  \PY{n}{numerator} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{]}
-  \PY{n}{denominator} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PYZbs{}
-    \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{sf}\PY{l+s}{'}\PY{p}{]}
-  \PY{k}{return} \PY{n}{numerator} \PY{o}{/} \PY{n+nb}{float}\PY{p}{(}\PY{n}{denominator}\PY{p}{)}
-\end{Verbatim}
+  def calculate_obp(player):
+    numerator = player['h'] + player['bb'] + player['hbp']
+    denominator = player['ab'] + player['bb'] + \
+      player['hbp'] + player['sf']
+    return numerator / float(denominator)
+        \end{pythoncode}
         \normalsize
-      \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}), and so on.
+      \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}).
       \item We use \texttt{float} here to account for Python's division behavior, as explained earlier.
     \end{itemize}
   \end{block}
@@ -517,15 +423,15 @@
       \item Suppose we have all of the players in baseball stored in a \texttt{list} (the elements of the \texttt{list} are \texttt{dict}ionaries representing players).
       \item We could calculate their stats one-by-one, but that is just wrong.
         Instead, we have the \texttt{for}-loop construct:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{for} \PY{n}{player} \PY{o+ow}{in} \PY{n}{players}\PY{p}{:}
-  \PY{n}{sp} \PY{o}{=} \PY{n}{calculate\PYZus{}sp}\PY{p}{(}\PY{n}{player}\PY{p}{)}
-  \PY{n}{obp} \PY{o}{=} \PY{n}{calculate\PYZus{}obp}\PY{p}{(}\PY{n}{player}\PY{p}{)}
-  \PY{k}{print} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{]}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{OBP: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{obp}\PY{p}{)}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{SP: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{sp}\PY{p}{)}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{OPS: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{obp} \PY{o}{+} \PY{n}{sp}\PY{p}{)}
-\end{Verbatim}
+        \begin{pythoncode}
+  for player in players:
+    sp = calculate_sp(player)
+    obp = calculate_obp(player)
+    print player['name']
+    print 'OBP: ' + str(obp)
+    print 'SP: ' + str(sp)
+    print 'OPS: ' + str(obp + sp)
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -536,18 +442,18 @@
   \frametitle{Rolling Your Own Classes}
   \begin{block}{Custom-Created Classes}
     \begin{itemize}
-      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary and have a set of methods\footnote{\textbf{Functions} versus \textbf{methods}: \texttt{say\_hello} is an example of a \texttt{method}, it's associated with \texttt{MyTestClass} objects.}
+      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary data and have a set of methods to manipulate it.\footnote{\textbf{Functions} versus \textbf{methods}: \texttt{say\_hello} is an example of a \texttt{method}, it's associated with \texttt{MyTestClass} objects.}
         \footnotesize
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{class} \PY{n+nc}{MyTestClass}\PY{p}{:}
-  \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{name}\PY{p}{)}\PY{p}{:}
-    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{n}{name}
-  \PY{k}{def} \PY{n+nf}{say\PYZus{}hello}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other\PYZus{}name}\PY{p}{)}\PY{p}{:}
-    \PY{k}{print} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{ says hi to }\PY{l+s}{'} \PY{o}{+} \PY{n}{other\PYZus{}name}
-\PY{n}{my\PYZus{}test\PYZus{}class\PYZus{}instance} \PY{o}{=} \PY{n}{MyTestClass}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Rocko}\PY{l+s}{'}\PY{p}{)}
-\PY{n}{my\PYZus{}test\PYZus{}class\PYZus{}instance}\PY{o}{.}\PY{n}{say\PYZus{}hello}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Clarissa}\PY{l+s}{'}\PY{p}{)}
-\PY{c}{# >>> 'Rocko says hi to Clarissa'}
-\end{Verbatim}
+        \begin{pythoncode}
+  class MyTestClass:
+    def __init__(self, name):
+      self.name = name
+    def say_hello(self, other_name):
+      print self.name + ' says hi to ' + other_name
+  my_test_class_instance = MyTestClass('Rocko')
+  my_test_class_instance.say_hello('Clarissa')
+  # 'Rocko says hi to Clarissa'
+        \end{pythoncode}
       \normalsize
       \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
         Any book on Python will have a more thorough treatment of classes.
@@ -562,14 +468,14 @@
     \begin{itemize}
       \item Few programs are just a straight pipeline of unbiased transformations to data -- most of the time, we'll want to branch out and make decisions based on input.
       \item Python has the \texttt{if}, \texttt{elif} and \texttt{else} keywords that provide this ability.
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}boolean} \PY{o}{=} \PY{n}{true}
-\PY{k}{if} \PY{n}{some\PYZus{}boolean}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Truly today is a special day!}\PY{l+s}{'}
-\PY{k}{else}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Back to the grind, peasant.}\PY{l+s}{'}
-\end{Verbatim}
-      Bring the fatted calf, it's feast day for this poor peasant.
+        \begin{pythoncode}
+  some_boolean = true
+  if some_boolean:
+    print 'Truly today is a special day!'
+  else:
+    print 'Back to the grind, peasant.'
+        \end{pythoncode}
+      BBQ Day!
     \end{itemize}
   \end{block}
 \end{frame}
@@ -580,48 +486,46 @@
     \begin{itemize}
       \item We can also use \texttt{==}, \texttt{$<$}, \texttt{$<$=}, and so on.
       \item The instructions following an \texttt{elif} keyword are only triggered if no previous conditions are met and the \texttt{elif} condition is.
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{strength} \PY{o}{=} \PY{l+m+mi}{15}
-\PY{k}{if} \PY{n}{strength} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{15}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{You pull the sword from the stone.}\PY{l+s}{'}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{All hail King Arthur!}\PY{l+s}{'}
-\PY{k}{elif} \PY{n}{strength} \PY{o}{>}\PY{o}{=} \PY{l+m+mi}{10}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Solid effort.}\PY{l+s}{'}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{But you were born to work in the mines.}\PY{l+s}{'}
-\PY{k}{else}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Nope! Not even close.}\PY{l+s}{'}
-\end{Verbatim}
+        \begin{pythoncode}
+  strength = 15
+  if strength >= 15:
+    print 'You pull the sword from the stone.'
+    print 'All hail King Arthur!'
+  elif strength >= 10:
+    print 'Solid effort.'
+    print 'But you were born to work in the mines.'
+  else:
+    print 'Nope! Not even close.'
+        \end{pythoncode}
       Looks like it's deep, dark and dirty for this guy.
     \end{itemize}
   \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Exercise 1}
   \begin{block}{Odd or Even?}
-     You can get the user to enter an input number as follows:
-
-     \texttt{uin = int(raw_input('Enter a number: '))}
-
-     Write a program that asks the user to input a number, then prints out if the number is odd or even.
+    You can get the user to enter an input number as follows:
+    \begin{pythoncode}
+  user_number = int(raw_input('Enter a number: '))
+    \end{pythoncode}
+    Write a program that asks the user to input a number, then prints out if the number is odd or even.
   \end{block}
 \end{frame}
     
 \begin{frame}
   \frametitle{Exercise 2}
-  \begin{block}{Am I overweight?}
-     Get the user to enter their height in inches and weight in pounds.
-
-     Compute their BMI as follows: \frac{w \times 703}{h^2}
+  \begin{block}{Am I Overweight?}
+    Get the user to enter their height in inches and weight in pounds.
+    Compute his or her \textbf{body mass index} (BMI\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.} as follows: $\frac{w * 703}{h ^ 2}$.
   \end{block}
 \end{frame}
     
 \begin{frame}
   \frametitle{Exercise 3}
-  \begin{block}{Odd and even averages}
-     Get the user to keep entering numbers until they enter a 0.
-
-     Then compute the average of all even numbers the user entered, and the average of all odd numbers the user entered.
+  \begin{block}{Odd and Even Averages}
+    Get the user to keep entering numbers until they enter a 0.
+    Then compute the average of all even numbers the user entered, and the average of all odd numbers the user entered.
   \end{block}
 \end{frame}
     
@@ -684,13 +588,13 @@
   \begin{itemize}
     \item So far, we've only played with the core of Python, so let's dive into the standard library (the suite of useful software that comes with Python).
     \item To load any one of these libraries, we use \texttt{import} statements:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{import} \PY{n+nn}{random} 
-\PY{c}{# Generate an integer from 1 to 6 (inclusive).}
-\PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
-\PY{c}{# Generate an integer from 1 to *5* (inclusive).}
-\PY{n}{random}\PY{o}{.}\PY{n}{randrange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
-\end{Verbatim}
+      \begin{pythoncode}
+  import random
+  # Generate an integer from 1 to 6 (inclusive).
+  random.randint(1, 6)
+  # Generate an integer from 1 to *5* (exclusive).
+  random.rangrange(1, 6)
+      \end{pythoncode}
   \end{itemize}
 \end{frame}
 
@@ -700,20 +604,17 @@
     \begin{itemize}
       \item Let's use random to pick the winner of a lottery.
         First, define the players:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{lottery\PYZus{}players} \PY{o}{=} \PY{p}{[}
-  \PY{l+s}{'}\PY{l+s}{Rufus}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{Sun}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{Tania}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{Boris}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{Rocky}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{Daisy}\PY{l+s}{'}
-\PY{p}{]}
-\end{Verbatim}
+        \begin{pythoncode}
+  lottery_players = [
+    'Rufus', 'Sun', 'Tania',
+    'Boris', 'Rocky', 'Daisy'
+  ]
+        \end{pythoncode}
       \item Then, picking a winner with \texttt{random} is stupid simple:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n}{lottery\PYZus{}players}\PY{p}{)}
-\end{Verbatim}
+        \begin{pythoncode}
+  print random.choice(lottery_players)
+        \end{pythoncode}
+
     \end{itemize}
   \end{block}
 \end{frame}
@@ -734,46 +635,52 @@
   \begin{block}{Picking Sides}
     \begin{itemize}
       \item Let's shuffle the list, and then save the number of players in a variable \texttt{number\_of\_players} using the builtin \texttt{len} function.\footnote{\texttt{len(object)} is really just a proxy for the method call \texttt{object.\_\_len\_\_()}. This is also the case for some of the operators we've seen, e.g., \texttt{object[i]}, which just calls \texttt{object.\_\_getitem\_\_(i)} behind the scenes, and \texttt{object + 1} becomes \texttt{object.\_\_add\_\_(1)}.}.
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{lottery\PYZus{}players}\PY{p}{)}
-\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Team 1:}\PY{l+s}{'}
-\PY{k}{print} \PY{n}{lottery\PYZus{}players}\PY{p}{[}\PY{p}{:}\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{]}
-\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Team 2:}\PY{l+s}{'}
-\PY{k}{print} \PY{n}{lottery\PYZus{}players}\PY{p}{[}\PY{n}{number\PYZus{}of\PYZus{}players} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
-\end{Verbatim}
+        \begin{pythoncode}
+  number_of_players = len(lottery_players)
+  print 'Team 1: '
+  print lottery_players[:number_of_players / 2]
+  print 'Team 2: '
+  print lottery_players[number_of_players / 2:]
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
     
 \begin{frame}
-  \frametitle{A fun project: A twitter reader!}
+  \frametitle{A Fun Project: A Twitter Reader!}
   \begin{itemize}
-    \item We will use a simple library to read any public twitter feed
-    \item Download the smalltweetlib.py file from https://github.com/rtirrell/PythonIntroduction
-    \item Add the following to your code: \texttt{from smalltweetlib import get\_tweets}
-    \item This function returns a list of dictionary objects with text and date attributes.
-    \item To get started, try this simple command: \texttt{print get\_tweets(cnn)}
+    \item We will use a simple library to read any public Twitter feed.
+    \item Download the smalltweetlib.py file from \href{https://github.com/rtirrell/PythonIntroduction}{https://github.com/rtirrell/PythonIntroduction}.
+    \item Create a new file, adding an import at the beginning: 
+      \mint{python}|from smalltweetlib import get_tweets|
+    \item This provides a function which \texttt{return}s a list of \texttt{dict}ionary objects with text and date attributes.
+    \item To get started, try this simple command: 
+      \mint{python}|print get_tweets('cnn')|
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{A twitter reader: Your first task}
+  \frametitle{A Twitter Reader: Your First Task}
   \begin{itemize}
-    \item Display the tweets from any user (cnn for example) in a nice format on screen
+    \item Print the tweets from any user (for example, \texttt{'cnn'}, or any Twitter user you choose) in a nice format on screen.
+    \item Examine the output from \texttt{get\_tweets} and decide how you'd like to display it.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{A twitter reader: Your second task}
+  \frametitle{A Twitter Reader: Your Second Task}
   \begin{itemize}
-    \item Display the tweets from a list of users (for example cnn, nytimes) in a nice format on screen
+    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in that nice format on screen.
+    \item Hint: try a function and a loop!
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{A twitter reader: Your final task}
+  \frametitle{A Twitter Reader: Your Third and Final Task}
   \begin{itemize}
-    \item Display the tweets from a list of users (for example cnn, nytimes) in a nice format on screen in a SORTED list.
+    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in a nice format on screen in a SORTED list.
+    \item Try running \texttt{smalltweetlib.py} directly.
+      It will output tweets from CNN and the NY Times, ordered by date.
   \end{itemize}
 \end{frame}
 
