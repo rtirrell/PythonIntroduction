@@ -1,2 +1,3 @@
 Slides/*
-!Slides/*.{pdf,tex,py,png}
+!Slides/*.{pdf,tex,py}
+.DS_Store
