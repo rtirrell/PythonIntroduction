@@ -1,3 +1,4 @@
 Slides/*
 !Slides/*.{pdf,tex,py}
 .DS_Store
+*.pyc

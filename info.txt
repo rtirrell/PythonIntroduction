@@ -1,4 +1,0 @@
-wireless: Stanford
-username and password: espslash
-
-Bookmark: http://anshul.info/C969Splash/
