@@ -1,11 +1,9 @@
 \documentclass[10pt]{beamer}
 
+\usepackage{helvet}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{times}
-
-\usepackage{fancyvrb}
-\usepackage{color}
+\usepackage{ulem}
 
 \title{Introduction to Programming with Python}
 \subtitle{Riding the Serpent}
@@ -27,6 +25,10 @@
 
 % Get rid of navigation symbols.
 \setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{fancyvrb}
+\usepackage{color}
 
 \makeatletter
 \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
@@ -189,6 +191,16 @@
   Before we can reveal Python, let's consider the high-level \textbf{process and principles of programming} (trust us, we know they're abstract and seemingly useless, but it's critical to really get what they mean).
 \end{frame}
 
+\begin{frame}
+  \frametitle{In Case of Emergency, Panic!}
+  \begin{center}
+    \includegraphics[width=100px]{AlertSign.jpg}
+  \end{center}
+  \begin{itemize}
+    \item But, really, please ask us questions -- raise your hand or shout it out.
+    \item As this is an introductory course, 
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Principal Principles of Programming (1)}
@@ -204,9 +216,30 @@
 
 \begin{frame}
   \frametitle{Principal Principles of Programming (2)}
+  \begin{quote}
+    \footnotesize
+    \sout{
+      \textbf{Computer programming} or \textbf{coding} is the process of designing, writing, testing, debugging/troubleshooting, and maintaining the source code of computer programs. 
+      This source code is written in a programming language. The purpose of programming is to create a program that exhibits a certain desired behaviour. 
+      The process of writing source code often requires expertise in many different subjects, including knowledge of the application domain, specialized algorithms and formal logic.
+    }
+  \end{quote}
+  \normalsize
+  \begin{block}{The Heart of the Matter}
+    \begin{itemize}
+      \item It's definitions like this that turn people off to programming.
+      \item At its core, programming is just writing a set of instructions which a computer runs on your behalf.
+      \item How you conceive of and design those instructions is the fun part (and the challenge).
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Principal Principles of Programming (3)}
   \begin{block}{Decomposition}
     \begin{itemize}
-      \item \textbf{Decomposition} is the means by which a complex problem or system is broken down into parts that are easier to conceive, understand, program and maintain.
+      \item \textbf{Decomposition} is the means by which a complex problem or system is broken down into parts that are easier to understand, program and maintain.
       \item This is one of the fundamental principles of design and programming: we decompose the logical structure into smaller, reusable units which we build one-at-a-time.
       \item Sometimes, how this decomposition should proceed isn't immediately clear.
         Then your first step should be thinking in depth about the problem you're facing, and in what ways it can be reduced into component subproblems.
@@ -215,7 +248,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Principal Principles of Programming (3)}
+  \frametitle{Principal Principles of Programming (4)}
   \centering
   \includegraphics[width=300px]{LinuxKernelMap.png}
   \begin{flushright} 
@@ -224,7 +257,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Principal Principles of Programming (4)}
+  \frametitle{Principal Principles of Programming (5)}
   \begin{block}{Divide and Conquer}
     \begin{itemize}
       \item Imagine you are a pin manufacturer in 18th century England.
@@ -236,12 +269,93 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Principal Principles of Programming (5)}
+  \frametitle{Principal Principles of Programming (6)}
   \begin{block}{Thinking about a Twitter iPhone App}
     \begin{itemize}
       \item Let's motivate this with an example.
       \item Break into groups with your nearest neighbors and discuss how you would design this application.
       \item What are the application and user operations we would want to support, and what are their requirements?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Interpreter (1)}
+  \begin{block}{$>>>$}
+    \begin{itemize}
+      \item As Python is an interpreted language (the computer reads, understands (compiles) and executes it on the fly, instead of reading and compiling ahead of time (as with C, C++, and many others).
+      \item Because of this, we can use Python interactively, which is extremely helpful for designing and troubleshooting code.
+    \end{itemize}
+  \end{block}
+  \begin{block}{IDLE}
+    \begin{itemize}
+      \item IDLE is Python's interpreter shell, which we'll use to walk through examples throughout the course.
+      \item For those of you with Macs, you can open a Terminal and launch Python by typing \texttt{python}.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The Interpreter (2)}
+  \begin{block}{The \texttt{print} Function}
+    \begin{itemize}
+      \item Strings are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular string).
+        e.g., if you want a string to have a contraction \texttt{"mustn't"}, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
+      \item \texttt{print} is a core Python function, which by default outputs text to the screen. It's somewhat special, in that parentheses are optional when using (calling) it.
+    \end{itemize}
+  \end{block}
+  \begin{block}{A Longstanding Tradition}
+      Three equivalent \texttt{'Hello, World!'}s:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello, World!}\PY{l+s}{"}
+\PY{k}{print}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Interpreter (3)}
+  \begin{block}{Not Your Daddy's Desktop Calculator}
+    \begin{itemize}
+      \item Among other uses, we can employ Python as a calculator.
+      \item At the interpreter (\texttt{$>>>$}), type \texttt{4 + 2}.
+        You should see \texttt{6}.
+        So far, so good -- naturally, other operators are available (e.g. \texttt{+ - * /}).
+      \item A player's \textbf{slugging percentage} (in baseball) is calculated as \texttt{(singles + 2 * doubles + 3 * triples + 4 * homers) / at bats}.
+      \item In \texttt{1920}, Babe Ruth appeared at the plate \texttt{458} times, cranking out \texttt{73} singles, \texttt{36} doubles, \texttt{9} triples and \texttt{54} home runs.
+        What was his slugging percentage?\footnote{The divisor needs to be a floating-point number (\texttt{458.0}), otherwise Python will drop the fractional component of a number.  This behavior can be a pain, and has been changed in Python 3.}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Interpreter (4)}
+  \begin{block}{More than a Glorified Calculator -- Saving it for Later}
+    \begin{itemize}
+      \item It can be tedious to have to type out that expression every time.
+        Luckily for us and our fingers, we can store the results of calculations in \textbf{variables} very simply in Python.
+      \item For example, \texttt{sp = (73 + 2 * 36 + 3 * 9 + 4 * 54) / 458.0}
+        If you mess up the numbers, you can always try again.
+        The new value will replace the old one.
+      \item Voil\`{a}! Try \texttt{print}ing the result.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The Interpreter (5)}
+  \begin{block}{Back to the Babe}
+    \begin{itemize}
+      \item Another useful stat is \texttt{on-base percentage} (OBP), calculated as \texttt{(H + BB + HBP) / (AB + BB + HBP + SF)}.  
+        In English, \texttt{(hits + walks + hit by pitches) / (hits + walks + hit by pitches + sacrifice flies)}.
+      \item In 1920, the Babe had \texttt{172} hits, walked \texttt{150} times, was hit by \texttt{3} pitches, and had no sacrifice flies (and \texttt{458} at bats).
+        What was his OBP (hint: store this in a variable \texttt{obp})?
+      \item Finally, to close out the baseball, \textbf{on-base plus slugging} (OPS) is a concise statistic frequently used to quantify players' offensive contributions.
+        Since we have both of these measures already stored, calculating Ruth's OPS is as simple as \texttt{sp + obp}!
+      \item Hopefully this illustrates the value of saving the results of intermediate computation.
+        You'll thank yourself later.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -255,7 +369,7 @@
       \item Text uses the \texttt{string} datatype, like \texttt{'Four score and seven years ago...'}.
       \item True and false values are \texttt{bool} (boolean) datatypes, in Python these are \texttt{True} and \texttt{False}.
         There is also a special value called \texttt{None}, that indicates 'no value'.
-      \item We can view the type of any variable using \texttt{type}, so \texttt{type('bananagram')} is \texttt{$<$type 'string'$>$}.
+      \item We can view the type of any variable using \texttt{type}, so typing \texttt{type('bananagram')}  \texttt{return}s \texttt{$<$type 'string'$>$}.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -327,7 +441,7 @@
 \end{Verbatim}
       \normalsize
       \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
-        Any book on Python will have a more thorough discussion of classes.
+        Any book on Python will have a more thorough treatment of classes.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -373,40 +487,6 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{The Interpreter (1)}
-  \begin{block}{$>>>$}
-    \begin{itemize}
-      \item As Python is an interpreted language (the computer reads, understands (compiles) and executes it on the fly, instead of reading and compiling ahead of time (as with C, C++, and many others).
-      \item Because of this, we can use Python interactively, which is extremely helpful for designing and troubleshooting code.
-    \end{itemize}
-  \end{block}
-  \begin{block}{IDLE}
-    \begin{itemize}
-      \item IDLE is Python's interpreter shell, which we'll use to walk through examples throughout the course.
-      \item For those of you with Macs, you can open a Terminal and launch Python by typing \texttt{python}.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{The Interpreter (2)}
-  \begin{block}{The \texttt{print} Function}
-    \begin{itemize}
-      \item Strings are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular string).
-        e.g., if you want a string to have a contraction \texttt{"mustn't"}, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
-      \item \texttt{print} is a core Python function, which by default outputs text to the screen. It's somewhat special, in that parentheses are optional when using (calling) it.
-    \end{itemize}
-  \end{block}
-  \begin{block}{A Longstanding Tradition}
-      Three equivalent \texttt{'Hello, World!'}:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Hello, World!}\PY{l+s}{"}
-\PY{k}{print}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Hello, World!}\PY{l+s}{'}\PY{p}{)}
-\end{Verbatim}
-  \end{block}
-\end{frame}
 
 \begin{frame}
   \frametitle{Brief Interlude: Setting Up KomodoEdit}
@@ -422,7 +502,7 @@
     \begin{itemize}
       \item The \texttt{def} keyword is used to create new functions.
       \item Functions always \texttt{return} a value. 
-        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly return \texttt{None}.
+        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly \texttt{return None}.
         \small
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{# This function has no parameters and...}
@@ -480,7 +560,7 @@
       \item Often, we'll want to get input from a user (e.g., a name).
       \item The \texttt{raw\_input} function does exactly that.
         We pass it one argument, a string that will be printed as the prompt (e.g. \texttt{'Enter your name: '}).
-      \item It returns whatever the user enters in response\footnote{The \texttt{'\textbackslash'} just allows us to continue a Python expression on the next line, so it doesn't run off of the slide :).}:
+      \item It \texttt{return}s whatever the user enters in response\footnote{The \texttt{'\textbackslash'} just allows us to continue a Python expression on the next line, so it doesn't run off of the slide :).}:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{favorite\PYZus{}color} \PY{o}{=} \PYZbs{}
   \PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{What is your favourite color? }\PY{l+s}{'}\PY{p}{)}
@@ -495,7 +575,7 @@
   \frametitle{Igpay Atinlay (3)}
   \begin{block}{Make Your Own Nonsense}
     \begin{itemize}
-      \item Using slicing, write a function that takes one parameter (a string) and returns the pig latinized version of the string.
+      \item Using slicing, write a function that takes one parameter (a string) and \texttt{return}s the pig latinized version of the string.
       \item We'll have to make one slice, access one element of the string directly, and then add 'ay' at the end:
         \texttt{$<$all but the first character$>$ + $<$the first character$>$ + 'ay'}.
     \end{itemize}
@@ -591,14 +671,14 @@
   \frametitle{Case Study: The Candy Shoppe (3)}
   \begin{block}{Implementation}
     \begin{itemize}
-      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will return 24.
+      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return} 24.
       \item As we might except, we can make comparisons with dictionary values directly, without storing the value in a separate variable:
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{if} \PY{n}{customer\PYZus{}info}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{age}\PY{l+s}{'}\PY{p}{]} \PY{o}{>} \PY{l+m+mi}{65}\PY{p}{:}
   \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Senior citizen discount!}\PY{l+s}{'}
 \end{Verbatim}
       \item We want to write a function, that given the purchase price and a customer's information, 'adjusts' the price appropriately.
-        It should look something like:
+        It should \texttt{return} a number and look something like:
         \small
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{compute\PYZus{}price}\PY{p}{(}\PY{n}{base\PYZus{}price}\PY{p}{,} \PY{n}{customer\PYZus{}info}\PY{p}{)}\PY{p}{:}
@@ -653,7 +733,7 @@
     \begin{itemize}
       \item How about one more quick example with the same people as before.
         We want to split the people into two teams, so we can sell tickets to a 3v3 wrestling extravaganza to pay off their gambling debts.
-      \item Again, ask and \texttt{random} provides the \texttt{shuffle} function, which randomizes the ordering of a list \textbf{in-place} (that is to say, it returns \texttt{None}).
+      \item Again, ask and \texttt{random} provides the \texttt{shuffle} function, which randomizes the ordering of a list \textbf{in-place} (that is to say, it \texttt{return}s \texttt{None}).
     \end{itemize}
   \end{block}
 \end{frame}
@@ -725,7 +805,7 @@
   \begin{itemize}
     \item We hope this little taste of the joys of programming whetted your appetite -- if so, this is the best place in the world to be.
     \item If you have any questions about Python, programming, or computer science in general, feel free to email either of us.
-    \item Anshul: \href{mailto:anshul@gmail.com}{anshul@gmail.com}, Rob: \href{mailto:rpt@stanford.edu}{rpt@stanford.edu}.
+    \item Anshul: \href{mailto:nigham@gmail.com}{anshul@gmail.com}, Rob: \href{mailto:rpt@stanford.edu}{rpt@stanford.edu}.
     \item \texttt{\textbf{print 'Farewell, and godspeed!'}}
   \end{itemize}
 \end{frame}
