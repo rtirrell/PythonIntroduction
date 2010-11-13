@@ -549,79 +549,12 @@
 \PY{c}{# >>> 'Rocko says hi to Clarissa'}
 \end{Verbatim}
       \normalsize
-
       \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
         Any book on Python will have a more thorough treatment of classes.
     \end{itemize}
   \end{block}
 \end{frame}
       
-
-
-
-\begin{frame}[fragile]
-  \frametitle{Igpay Atinlay (1)}
-  \begin{block}{Pig Latin}
-    Pig latin is a nonsense language, that can be generated easily for any English word, by moving the word's first character to the end and adding \texttt{'ay'}.
-    Then, \texttt{pig\_latinize('pork') = 'orkpay'}
-  \end{block}
-  \begin{block}{String Indexing and Slicing}
-    \begin{itemize}
-      \item Recall that we can access single elements of a collection using \texttt{[]}.
-        We can also access longer parts of the string (which is a collection of characters) using \textbf{slices}.
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{green\PYZus{}eggs} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{green eggs and ham}\PY{l+s}{'}
-\PY{k}{print} \PY{n}{green\PYZus{}eggs}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}
-\PY{o}{>>}\PY{o}{>} \PY{l+s}{'}\PY{l+s}{eggs}\PY{l+s}{'}
-\end{Verbatim}
-      \item Slices range from \texttt{0}, the first element, to \texttt{-1}, the last element.
-      \item Omitting the start or end defaults to 'from the beginning' or 'to the end', respectively.
-        Thus, \texttt{some\_collection[:] == some\_collection}.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Igpay Atinlay (2)}
-  \begin{block}{Reading User Input with \texttt{raw\_input}}
-    \begin{itemize}
-      \item Often, we'll want to get input from a user (e.g., a name).
-      \item The \texttt{raw\_input} function does exactly that.
-        We pass it one argument, a string that will be printed as the prompt (e.g. \texttt{'Enter your name: '}).
-      \item It \texttt{return}s whatever the user enters in response\footnote{The \texttt{'\textbackslash'} just allows us to continue a Python expression on the next line, so it doesn't run off of the slide :).}:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{favorite\PYZus{}color} \PY{o}{=} \PYZbs{}
-  \PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{What is your favourite color? }\PY{l+s}{'}\PY{p}{)}
-\end{Verbatim}
-        Then \texttt{favorite\_color} will be \texttt{'red'}, or \texttt{'Black'}, etc..
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-\begin{frame}[fragile]
-  \frametitle{Igpay Atinlay (3)}
-  \begin{block}{Make Your Own Nonsense}
-    \begin{itemize}
-      \item Using slicing, write a function that takes one parameter (a string) and \texttt{return}s the pig latinized version of the string.
-      \item We'll have to make one slice, access one element of the string directly, and then add 'ay' at the end:
-        \texttt{$<$all but the first character$>$ + $<$the first character$>$ + 'ay'}.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Igpay Atinlay versus igPay atinLay (4)}
-  \begin{block}{Improving Pig Latinization}
-    You probably noticed that capitalized characters look out of place in the first version of the function.
-    There are two string methods, \texttt{lower} and \texttt{capitalize}\footnote{An exhaustive list of string methods is available at \href{http://docs.python.org/library/string.html}{http://docs.python.org/library/string.html}.  All of the builtin libraries are well-documented, see \href{http://docs.python.org}{http://docs.python.org}}, that we can use to fix this problem.
-    \begin{itemize}
-      \item Modify the function so that it converts the pig latinized string to lowercase, then capitalizes it.
-      \item We can do all of this in one line, but it is easier to read and understand if you store the intermediate pig latinized string in its own variables, like \texttt{pig\_latinized\_string}.
-      \item Helpfully, we can 'chain' method calls, in other words, \texttt{some\_string.lower().capitalize()} works!
-    \end{itemize}
-  \end{block}
-\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Dealing with Uncertainty (1)}
@@ -636,6 +569,7 @@
 \PY{k}{else}\PY{p}{:}
   \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Back to the grind, peasant.}\PY{l+s}{'}
 \end{Verbatim}
+      Bring the fatted calf, it's feast day for this poor peasant.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -784,18 +718,21 @@
     
 
 \begin{frame}
-  \frametitle{Choose Your Own Adventure}
-  We have a couple of choices for what to do next. We can:
+  \frametitle{The Final Project: Mangling Mark Twain}
   \begin{itemize}
-    \item Write a program that analyzes word usage in a document, featuring a brief introduction to natural-language processing (NLP) theory and techniques.
-    \item Write a program that uses Google web services to 'fight' terms against each other (in the spirit of \href{www.googlefight.com}{Google Fight}).
-    \item Mangling Mark Twain: code a 'random writer' that reads a document and generates a somewhat sensible-sounding babble based on it. \\
+    \item We will code a 'random writer' that reads a document and generates a somewhat sensible-sounding babble based on it.
+    \item This will be the whirlwind outro: we'll introduce user input and file input/output.
+      The result is pretty cool: \\
       \begin{quote}
         \small
         By jingo! that reminds me of a droll dog of a thieving line-- the high standard held up to the mode in which her mouth and brow there was something alien and ill-understood the impetuosity.  
         His reason for hastening it--if he scrupulous explorer to be saluted with those cheerful view of all the plans, and took lasting impression of Celia, Tantripp, stooping and getting a bit of a note saying you don't see anything of that sort of challenge me.
       \end{quote}
-      \raggedleft\footnotesize -- Generated from \emph{Middlemarch} by Mary Ann Evans
+      \begin{flushright}
+        \footnotesize -- Generated from \emph{Middlemarch} by Mary Ann Evans
+      \end{flushright}
+      \item Try as you might, you can't make your mind understand it.
+        It's gramatically close to English, but semantically meaningless gobbledigook.\footnote{Kind of like Perl :).}
   \end{itemize}
 \end{frame}
 
