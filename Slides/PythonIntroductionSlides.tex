@@ -126,7 +126,7 @@
   \begin{block}{Anshul Nigham}
     \begin{itemize}
       \item Began programming at 12 on on 8086 PC-XT (a full-fledged computer 20x slower than an iPhone).
-      \item Converts caffeine into code for a living at Yahoo.
+      \item Converts caffeine into code for a living at Google.
     \end{itemize}
   \end{block}
   \begin{block}{Rob Tirrell}
@@ -166,7 +166,7 @@
     \item \textbf{AstraZeneca} uses Python in drug discovery pipelines.
     \item \textbf{Phillips'} fabrication plants are managed in Python.
     \item \textbf{Industrial Light \& Magic} (Star Wars) employs Python for process management.
-    \item At \textbf{Yahoo}, \textbf{Anshul} developed an AdWords optimizer in Python.
+    \item \textbf{Anshul} developed an AdWords (Google's advertising platform) optimizer in Python.
     \item In \textbf{Rob's} work, people use Python at every point in the research pipeline (preprocessing and sanitization, standard analyses, data aggregation and integration, and so forth).
     \item It may be new to you, but according to TIOBE's programming languages index, Python is the sixth-most popular in the world.
     \item A list of anecdotes can't quite prove a point, so we'll try to justify why you should care about and use Python.
@@ -197,8 +197,9 @@
     \includegraphics[width=100px]{AlertSign.jpg}
   \end{center}
   \begin{itemize}
-    \item But, really, please ask us questions -- raise your hand or shout it out.
-    \item As this is an introductory course, 
+    \item But, really, please ask us questions -- raise your hand or whatever.
+    \item As this is an introductory course, many of you will be wondering about the same things.
+      Be a leader, just ask and Make Your Voice Heard.
   \end{itemize}
 \end{frame}
 
@@ -227,7 +228,7 @@
   \normalsize
   \begin{block}{The Heart of the Matter}
     \begin{itemize}
-      \item It's definitions like this that turn people off to programming.
+      \item While true, this definition is not particularly helpful, so we propose an alternative.
       \item At its core, programming is just writing a set of instructions which a computer runs on your behalf.
       \item How you conceive of and design those instructions is the fun part (and the challenge).
     \end{itemize}
@@ -270,11 +271,16 @@
 
 \begin{frame}
   \frametitle{Principal Principles of Programming (6)}
-  \begin{block}{Thinking about a Twitter iPhone App}
+  \begin{block}{Motivating by Example}
+    \centering
+    \vspace{10px}
+    \includegraphics[width=125px]{Brainstorm.jpg}
+    \vspace{5px}
     \begin{itemize}
-      \item Let's motivate this with an example.
-      \item Break into groups with your nearest neighbors and discuss how you would design this application.
+      \item Think of an application you use frequently (a desktop application, a website, a phone application, etc.).
       \item What are the application and user operations we would want to support, and what are their requirements?
+      \item With your nearest neighbors, consider and discuss how you would design this application.
+        \textbf{Go!}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -283,7 +289,8 @@
   \frametitle{The Interpreter (1)}
   \begin{block}{$>>>$}
     \begin{itemize}
-      \item As Python is an interpreted language (the computer reads, understands (compiles) and executes it on the fly, instead of reading and compiling ahead of time (as with C, C++, and many others).
+      \item Python is an interpreted language.
+        The computer reads, understands (compiles) and executes it on the fly, instead of reading and compiling ahead of time (as with C, C++, and many others).
       \item Because of this, we can use Python interactively, which is extremely helpful for designing and troubleshooting code.
     \end{itemize}
   \end{block}
@@ -300,7 +307,7 @@
   \begin{block}{The \texttt{print} Function}
     \begin{itemize}
       \item Strings are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular string).
-        e.g., if you want a string to have a contraction \texttt{"mustn't"}, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
+        e.g., if you want a string to have a contraction, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
       \item \texttt{print} is a core Python function, which by default outputs text to the screen. It's somewhat special, in that parentheses are optional when using (calling) it.
     \end{itemize}
   \end{block}
@@ -322,15 +329,28 @@
       \item At the interpreter (\texttt{$>>>$}), type \texttt{4 + 2}.
         You should see \texttt{6}.
         So far, so good -- naturally, other operators are available (e.g. \texttt{+ - * /}).
-      \item A player's \textbf{slugging percentage} (in baseball) is calculated as \texttt{(singles + 2 * doubles + 3 * triples + 4 * homers) / at bats}.
-      \item In \texttt{1920}, Babe Ruth appeared at the plate \texttt{458} times, cranking out \texttt{73} singles, \texttt{36} doubles, \texttt{9} triples and \texttt{54} home runs.
-        What was his slugging percentage?\footnote{The divisor needs to be a floating-point number (\texttt{458.0}), otherwise Python will drop the fractional component of a number.  This behavior can be a pain, and has been changed in Python 3.}
+    \end{itemize}
+  \end{block}
+  \begin{block}{Balling}
+    \begin{itemize}
+      \item To delve deeper into Python, we're going to work through a baseball\footnote{Baseball is a popular American sport. Rob's hometown is the supposed 'birthplace of baseball'.} statistics\footnote{The deliberate application of statistics to baseball is known as 'sabremetrics'. Check it out, it's really interesting.} example.
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}
   \frametitle{The Interpreter (4)}
+  \begin{block}{Still Balling}
+    \begin{itemize}
+      \item A player's \textbf{slugging percentage} is calculated as \texttt{(singles + 2 * doubles + 3 * triples + 4 * homers) / at bats}.
+        Basically, the numerator is the number of bases that player moves as a result of his offense.
+      \item In \texttt{1920}, Babe Ruth appeared at the plate \texttt{458}\footnote{The divisor -- at bats -- needs to be a floating-point number, so enter it as \texttt{458.0}, otherwise Python will drop the fractional component of the result.  This behavior can be a pain, and has been changed in Python 3.} times, cranking out \texttt{73} singles, \texttt{36} doubles, \texttt{9} triples and \texttt{54} home runs.    
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Interpreter (5)}
   \begin{block}{More than a Glorified Calculator -- Saving it for Later}
     \begin{itemize}
       \item It can be tedious to have to type out that expression every time.
@@ -345,14 +365,14 @@
 
 
 \begin{frame}
-  \frametitle{The Interpreter (5)}
+  \frametitle{The Interpreter (6)}
   \begin{block}{Back to the Babe}
     \begin{itemize}
       \item Another useful stat is \texttt{on-base percentage} (OBP), calculated as \texttt{(H + BB + HBP) / (AB + BB + HBP + SF)}.  
         In English, \texttt{(hits + walks + hit by pitches) / (hits + walks + hit by pitches + sacrifice flies)}.
       \item In 1920, the Babe had \texttt{172} hits, walked \texttt{150} times, was hit by \texttt{3} pitches, and had no sacrifice flies (and \texttt{458} at bats).
         What was his OBP (hint: store this in a variable \texttt{obp})?
-      \item Finally, to close out the baseball, \textbf{on-base plus slugging} (OPS) is a concise statistic frequently used to quantify players' offensive contributions.
+      \item \textbf{On-base plus slugging} (OPS) is a summary statistic frequently used to quantify players' offensive contributions.
         Since we have both of these measures already stored, calculating Ruth's OPS is as simple as \texttt{sp + obp}!
       \item Hopefully this illustrates the value of saving the results of intermediate computation.
         You'll thank yourself later.
@@ -361,7 +381,18 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Datatypes (1)}
+  \frametitle{Brief Interlude: Setting Up KomodoEdit}
+  \begin{center}
+    \includegraphics[width=300px]{KomodoEdit.png}
+  \end{center}
+  \begin{itemize}
+    \item KomodoEdit should already be installed on the provided computers, if not, visit \href{http://www.activestate.com/komodo-edit/downloads}{http://www.activestate.com/komodo-edit/downloads} to grab it.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Playing Ball with Datatypes (1)}
   \begin{block}{What are They?}
     \begin{itemize}
       \item A \textbf{datatype} refers to a location in the computer's memory and the type of information stored there.
@@ -375,59 +406,137 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Datatypes (2)}
+  \frametitle{Playing Ball with Datatypes (2)}
   \begin{block}{More Advanced Datatypes}
     \begin{itemize}
-      \item Obviously, more complex programs require more complex datatypes (depending on the complexity, they may be referred to as 'data structures').
+      \item Obviously, more complex programs require more complex datatypes (also referred to as 'data structures').
       \item The two most important in Python are the \texttt{list} and \texttt{dict} (dictionary).
       \item A list: 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{monkeys}\PY{l+s}{'}\PY{p}{]}
+\PY{n}{teams} \PY{o}{=} \PY{p}{[}
+  \PY{l+s}{'}\PY{l+s}{Montreal Expos}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{Washington Nationals}\PY{l+s}{'}\PY{p}{,}
+  \PY{l+s}{'}\PY{l+s}{San Francisco Giants}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{New York Yankees}\PY{l+s}{'}
+\PY{p}{]}
 \end{Verbatim}
       \item A dictionary:
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}
-  \PY{l+s}{'}\PY{l+s}{New York}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{A state in the US.}\PY{l+s}{'}\PY{p}{,} 
-  \PY{l+m+mi}{42}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{A completely irrelevant number.}\PY{l+s}{'}\PY{p}{,} 
-  \PY{l+s}{'}\PY{l+s}{today\PYZus{}is\PYZus{}sunday}\PY{l+s}{'}\PY{p}{:} \PY{n}{False}
-\PY{p}{\PYZcb{}}
+\PY{n}{player} \PY{o}{=} \PY{p}{\PYZob{}}
+  \PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{Babe Ruth}\PY{l+s}{'}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{458}\PY{p}{,} 
+  \PY{l+s}{'}\PY{l+s}{1b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{73}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{2b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{36}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{3b}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{hr}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{54}\PY{p}{,} 
+  \PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{172}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{150}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+s}{'}\PY{l+s}{sf}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{0}
+\PY{p}{\PYZcb{}} 
 \end{Verbatim}
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Datatypes (3)}
-  \begin{block}{Duck Typing}
+  \frametitle{Functions for Fame and Fortune (and Baseball) (1)}
+  \begin{block}{Python Provides Many Functions for Free}
     \begin{itemize}
-      \item The Python philosophy: if it looks like a duck, and it quacks like a duck, then it's a duck.
-      \item In other words, variables are not restricted to contain a particular datatype.
-        We can re-assign them to anything we want:
+      \item \textbf{Functions} and \textbf{methods}\footnote{There is a difference: methods are attached to and operate on their objects, while functions stand alone. Don't worry too much about this now, we'll come back to it later (and in this course we will only write functions, anyway).} are procedures that work on variables to transform or otherwise alter them.
+      \item Many of Python's collection datatypes support element access by index (indexing):
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{]} \PY{c}{# 'Babe Ruth'}
+\end{Verbatim}
+      \item This is an important point: in Python, the first element of a collection is the \texttt{[0]}th'' one, available at \texttt{collection[0]}.
+      \item Similarly, for lists:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{teams}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{# 'Montreal Expos'}
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Functions for Fame and Fortune (and Baseball) (2)}
+  \begin{block}{A Few More Examples}
+    \begin{itemize}
+      \item Change a string to all uppercase:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{teams}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)} \PY{c}{# 'MONTREAL EXPOS'}
+\end{Verbatim}
+      \item Add an entry to a list:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{teams}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{Krypton Krushers}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+      \item Compute the sum of a list:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{sum}\PY{p}{(}\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]}\PY{p}{,} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Functions for Fame and Fortune (and Baseball) (3)}
+  \begin{block}{Writing Your Own with \texttt{def}}
+    \begin{itemize}
+      \item The \texttt{def} keyword is used to create new functions.
+      \item Functions always \texttt{return} a value. 
+        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly \texttt{return None}.
+        \small
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{# This function has no parameters and returns None.}
+\PY{k}{def} \PY{n+nf}{test\PYZus{}func}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+  \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I}\PY{l+s}{'}\PY{l+s}{m useless!}\PY{l+s}{"}
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Functions for Fame and Fortune (and Baseball) (4)}
+  \begin{block}{Funcball}
+    \begin{itemize}
+      \item If we represent a player as in the \texttt{dict}ionary above, we can then write functions that calculates any player's stats:
         \footnotesize
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{var} \PY{o}{=} \PY{l+m+mi}{44}
-\PY{n}{var} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{The Life of Brian}\PY{l+s}{'}
-\PY{n}{var} \PY{o}{=} \PY{p}{[}
-  \PY{l+s}{'}\PY{l+s}{Episode IV: A New Hope}\PY{l+s}{'}\PY{p}{,} 
-  \PY{l+s}{'}\PY{l+s}{Episode V: The Empire Strikes Back}\PY{l+s}{'}\PY{p}{,} 
-  \PY{l+s}{'}\PY{l+s}{Episode VI: Return of the Jedi}\PY{l+s}{'}
-\PY{p}{]}
-\PY{n}{var} \PY{o}{=} \PY{p}{\PYZob{}}
-  \PY{l+s}{'}\PY{l+s}{aardvark}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{a nocturnal burrower from Africa}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{antbear}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{another name for an aardvark}\PY{l+s}{'}
-\PY{p}{\PYZcb{}}
+\PY{k}{def} \PY{n+nf}{calculate\PYZus{}sp}\PY{p}{(}\PY{n}{player}\PY{p}{)}\PY{p}{:}
+  \PY{n}{bases} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{2b}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PYZbs{}
+    \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{3b}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{4} \PY{o}{*} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hr}\PY{l+s}{'}\PY{p}{]}
+  \PY{k}{return} \PY{n}{bases} \PY{o}{/} \PY{n+nb}{float}\PY{p}{(}\PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{]}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{calculate\PYZus{}obp}\PY{p}{(}\PY{n}{player}\PY{p}{)}\PY{p}{:}
+  \PY{n}{numerator} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{h}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{]}
+  \PY{n}{denominator} \PY{o}{=} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{ab}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{bb}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PYZbs{}
+    \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{hbp}\PY{l+s}{'}\PY{p}{]} \PY{o}{+} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{sf}\PY{l+s}{'}\PY{p}{]}
+  \PY{k}{return} \PY{n}{numerator} \PY{o}{/} \PY{n+nb}{float}\PY{p}{(}\PY{n}{denominator}\PY{p}{)}
 \end{Verbatim}
         \normalsize
       \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}), and so on.
+      \item We use \texttt{float} here to account for Python's division behavior, as explained earlier.
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Datatypes (4)}
-  \begin{block}{Rolling Our Own Classes}
+  \frametitle{For Loops}
+  \begin{block}{Loopball}
     \begin{itemize}
-      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary and have a set of methods to manipulate that data.
+      \item Suppose we have all of the players in baseball stored in a \texttt{list} (the elements of the \texttt{list} are \texttt{dict}ionaries representing players).
+      \item We could calculate their stats one-by-one, but that is just wrong.
+        Instead, we have the \texttt{for}-loop construct:
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{player} \PY{o+ow}{in} \PY{n}{players}\PY{p}{:}
+  \PY{n}{sp} \PY{o}{=} \PY{n}{calculate\PYZus{}sp}\PY{p}{(}\PY{n}{player}\PY{p}{)}
+  \PY{n}{obp} \PY{o}{=} \PY{n}{calculate\PYZus{}obp}\PY{p}{(}\PY{n}{player}\PY{p}{)}
+  \PY{k}{print} \PY{n}{player}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{]}
+  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{OBP: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{obp}\PY{p}{)}
+  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{SP: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{sp}\PY{p}{)}
+  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{OPS: }\PY{l+s}{'} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{obp} \PY{o}{+} \PY{n}{sp}\PY{p}{)}
+\end{Verbatim}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Rolling Your Own Classes}
+  \begin{block}{Custom-Created Classes}
+    \begin{itemize}
+      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary and have a set of methods\footnote{\textbf{Functions} versus \textbf{methods}: \texttt{say\_hello} is an example of a \texttt{method}, it's associated with \texttt{MyTestClass} objects.}
         \footnotesize
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{MyTestClass}\PY{p}{:}
@@ -440,6 +549,7 @@
 \PY{c}{# >>> 'Rocko says hi to Clarissa'}
 \end{Verbatim}
       \normalsize
+
       \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
         Any book on Python will have a more thorough treatment of classes.
     \end{itemize}
@@ -447,89 +557,7 @@
 \end{frame}
       
 
-\begin{frame}[fragile]
-  \frametitle{Introduction to Functions and Methods (1)}
-  \begin{block}{Making Things Happen}
-    \begin{itemize}
-      \item \textbf{Functions} and \textbf{methods}\footnote{There is a difference: methods are attached to and operate on their objects, while functions stand alone. e.g., \texttt{say\_hello} in the class on the preceding page was a \texttt{method} associated with \texttt{MyTestClass} objects. Don't worry too much about this now, we'll come back to it later (and in this course will only write functions, anyway).} are procedures that work on variables to transform or otherwise alter them.
-      \item Change a string to all uppercase:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}string} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{julius}\PY{l+s}{'}
-\PY{n}{some\PYZus{}string} \PY{o}{=} \PY{n}{some\PYZus{}string}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}
-\PY{n}{some\PYZus{}string}
-\PY{c}{# >>> 'JULIUS'}
-\end{Verbatim}
-      \item Access an entry (sometimes called an element) of a dictionary:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}dict}\PY{p}{[}\PY{l+m+mi}{42}\PY{p}{]}
-\PY{c}{# >>> 'A completely irrelevant number'}
-\end{Verbatim}
-    \end{itemize}
-  \end{block}
-\end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Introduction to Functions and Methods (2)}
-  \begin{block}{A Few More Examples}
-    \begin{itemize}
-      \item Many of Python's datatypes support this sort of access (called indexing).
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}string}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
-\PY{c}{# >>> 'U'}
-\end{Verbatim}
-      \item This is an important point: in Python, the first element of a collection is the \texttt{[0]}th'' one, available at \texttt{collection[0]}.
-      \item Similarly, for lists:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{some\PYZus{}list}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
-\PY{c}{# >>> 'monkey'}
-\end{Verbatim}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Brief Interlude: Setting Up KomodoEdit}
-  \begin{center}
-    \includegraphics[width=300px]{KomodoEdit.png}
-  \end{center}
-  KomodoEdit should already be installed on the provided computers, if not, visit \href{http://www.activestate.com/komodo-edit/downloads}{http://www.activestate.com/komodo-edit/downloads} to grab it.
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Functions (1)}
-  \begin{block}{Writing Your Own with \texttt{def}}
-    \begin{itemize}
-      \item The \texttt{def} keyword is used to create new functions.
-      \item Functions always \texttt{return} a value. 
-        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly \texttt{return None}.
-        \small
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{# This function has no parameters and...}
-\PY{k}{def} \PY{n+nf}{test\PYZus{}func\PYZus{}1}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{"}\PY{l+s}{I}\PY{l+s}{'}\PY{l+s}{m useless!}\PY{l+s}{"}
-\end{Verbatim}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Functions (2)}
-\small
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{# This function has no parameters and returns None.}
-\PY{k}{def} \PY{n+nf}{test\PYZus{}func\PYZus{}2}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-  \PY{k}{pass}
-
-\PY{c}{# This function has one parameter - a number.}
-\PY{c}{# It adds 10 and returns that value.}
-\PY{k}{def} \PY{n+nf}{add\PYZus{}10}\PY{p}{(}\PY{n}{parameter\PYZus{}1}\PY{p}{)}\PY{p}{:}
-  \PY{k}{return} \PY{n}{parameter\PYZus{}1} \PY{o}{+} \PY{l+m+mi}{10}
-\end{Verbatim}
-  \begin{block}{Write Your Own}
-    Try writing a simple function that takes one parameter (a string) and uses \texttt{+} to display \texttt{'Hello $<$your string goes here$>$'}.
-  \end{block}
-\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Igpay Atinlay (1)}

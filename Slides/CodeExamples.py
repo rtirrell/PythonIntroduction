@@ -2,17 +2,14 @@ print 'Hello World'
 
 some_list = [12, 'monkeys']
 
-some_dict = {
-  'New York': 'A state in the US.', 
-  42: 'A completely irrelevant number.', 
-  'today_is_sunday': False
-} 
-
 some_string = 'julius'
 some_string = some_string.upper()
 some_string
 # >>> 'JULIUS'
 
+some_dict = {
+  42: 'A completely irrelevant number'
+}
 some_dict[42]
 # >>> 'A completely irrelevant number'
 
@@ -26,24 +23,9 @@ print 'Hello, World!'
 print "Hello, World!"
 print('Hello, World!')
 
-# This function has no parameters and...
+# This function has no parameters and returns None.
 def test_func_1():
   print "I'm useless!"
-
-# This function has no parameters and returns None.
-def test_func_2():
-  pass
-
-# This function has one parameter - a number.
-# It adds 10 and returns that value.
-# We could also write everything inline, like:
-# 'return parameter_1 + 10'
-def add_10(parameter_1):
-  parameter_1 = parameter_1 + 10
-  return parameter_1
-
-green_eggs = 'green eggs and ham'
-print green_eggs[6:10]
 
 some_boolean = True
 if some_boolean:
@@ -75,18 +57,6 @@ def compute_price(base_price, customer_info):
 
 if customer_info['age'] > 65:
   print 'Senior citizen discount!'
-
-var = 44
-var = 'The Life of Brian'
-var = [
-  'Episode IV: A New Hope', 
-  'Episode V: The Empire Strikes Back', 
-  'Episode VI: Return of the Jedi'
-]
-var = {
-  'aardvark': 'a nocturnal burrower from Africa',
-  'antbear': 'another name for an aardvark'
-}
 
 class MyTestClass:
   def __init__(self, name):
@@ -122,5 +92,55 @@ print lottery_players[:number_of_players / 2]
 print 'Team 2:'
 print lottery_players[number_of_players / 2:]
 
-favorite_color = \
-  raw_input('What is your favourite color? ')
+#favorite_color = \
+  #raw_input('What is your favourite color? ')
+
+def calculate_sp(player):
+  bases = player['h'] + 2 * player['2b'] + \
+    3 * player['3b'] + 4 * player['hr']
+  return bases / float(player['ab'])
+
+def calculate_obp(player):
+  numerator = player['h'] + player['bb'] + player['hbp']
+  denominator = player['ab'] + player['bb'] + \
+    player['hbp'] + player['sf']
+  return numerator / float(denominator)
+
+
+player = {
+  'name': 'Babe Ruth', 'ab': 458, 
+  '1b': 73, '2b': 36, '3b': 9, 'hr': 54, 
+  'h': 172, 'bb': 150, 'hbp': 3, 'sf': 0
+} 
+
+mays = {
+  'name': 'Willie Mays', 'ab': 590,
+  '1b': 85, '2b': 40, '3b': 15, 'hr': 50, 
+  'h': 190, 'bb': 177, 'hbp': 5, 'sf': 1
+}
+
+teams = [
+  'Montreal Expos', 'Washington Nationals',
+  'San Francisco Giants', 'New York Yankees'
+]
+
+players = [
+  player,
+  mays
+]
+
+for player in players:
+  sp = calculate_sp(player)
+  obp = calculate_obp(player)
+  print player['name']
+  print 'OBP: ' + str(obp)
+  print 'SP: ' + str(sp)
+  print 'OPS: ' + str(obp + sp)
+
+teams[0].upper() # 'MONTREAL EXPOS'
+
+player['name'] # 'Babe Ruth'
+
+teams.append('Krypton Krushers')
+
+sum(player['h'], player['bb'])
