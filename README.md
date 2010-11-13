@@ -4,5 +4,5 @@
 
 ## Contacting Us
 Please feel free to contact us with questions, comments, whatever.
-* Rob is at rpt@stanford.edu.
-* Anshul is at nigham@gmail.com
+  * Rob is at rpt@stanford.edu.
+  * Anshul is at nigham@gmail.com
