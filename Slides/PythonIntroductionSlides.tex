@@ -548,16 +548,16 @@
     \begin{itemize}
       \item Each customer's loyalty card has several attributes encoded in the magstripe.
       \item These attributes are loaded into the cash machine when you scan the card, and are available to the software as a dictionary.
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{customer\PYZus{}info} \PY{o}{=} \PY{p}{\PYZob{}}
-  \PY{l+s}{'}\PY{l+s}{name}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{Rob Tirrell}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{email}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{rpt@stanford.edu}\PY{l+s}{'}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{age}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{24}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{blood\PYZus{}sugar}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mf}{5.0}\PY{p}{,} \PY{c}{# mmol / L}
-  \PY{l+s}{'}\PY{l+s}{likes\PYZus{}dark\PYZus{}chocolate}\PY{l+s}{'}\PY{p}{:} \PY{n+nb+bp}{False}\PY{p}{,}
-  \PY{l+s}{'}\PY{l+s}{astrological\PYZus{}sign}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{Gemini}\PY{l+s}{'}
-\PY{p}{\PYZcb{}}
-\end{Verbatim}
+        \begin{pythoncode}
+  customer_info = {
+    'name': 'Rob Tirrell',
+    'email': 'rpt@stanford.edu',
+    'age': 24,
+    'blood_sugar': 5.0 # mmol / L
+    'likes_dark_chocolate': False,
+    'astrological_sign': 'Gemini'
+  }
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -567,18 +567,17 @@
   \begin{block}{Implementation}
     \begin{itemize}
       \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return} 24.
-      \item As we might except, we can make comparisons with dictionary values directly, without storing the value in a separate variable:
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n}{customer\PYZus{}info}\PY{p}{[}\PY{l+s}{'}\PY{l+s}{age}\PY{l+s}{'}\PY{p}{]} \PY{o}{>} \PY{l+m+mi}{65}\PY{p}{:}
-  \PY{k}{print} \PY{l+s}{'}\PY{l+s}{Senior citizen discount!}\PY{l+s}{'}
-\end{Verbatim}
+      \item We can make comparisons with dictionary values directly, without storing the value in a separate variable:
+        \begin{pythoncode}
+  if customer_info['age'] > 65:
+    print 'Senior citizen discount!'
+        \end{pythoncode}
       \item We want to write a function, that given the purchase price and a customer's information, 'adjusts' the price appropriately.
         It should \texttt{return} a number and look something like:
-        \small
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} \PY{n+nf}{compute\PYZus{}price}\PY{p}{(}\PY{n}{base\PYZus{}price}\PY{p}{,} \PY{n}{customer\PYZus{}info}\PY{p}{)}\PY{p}{:}
-  \PY{k}{pass} \PY{c}{# Fill in here!}
-\end{Verbatim}
+        \begin{pythoncode}
+  def compute_price(base_price, customer_info):
+    pass # Fill in here!
+        \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -611,37 +610,7 @@
   ]
         \end{pythoncode}
       \item Then, picking a winner with \texttt{random} is stupid simple:
-        \begin{pythoncode}
-  print random.choice(lottery_players)
-        \end{pythoncode}
-
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Importing and Using Modules (3)}
-  \begin{block}{Shufflin'}
-    \begin{itemize}
-      \item How about one more quick example with the same people as before.
-        We want to split the people into two teams, so we can sell tickets to a 3v3 wrestling extravaganza to pay off their gambling debts.
-      \item Again, ask and \texttt{random} provides the \texttt{shuffle} function, which randomizes the ordering of a list \textbf{in-place} (that is to say, it \texttt{return}s \texttt{None}).
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Importing and Using Modules (4)}
-  \begin{block}{Picking Sides}
-    \begin{itemize}
-      \item Let's shuffle the list, and then save the number of players in a variable \texttt{number\_of\_players} using the builtin \texttt{len} function.\footnote{\texttt{len(object)} is really just a proxy for the method call \texttt{object.\_\_len\_\_()}. This is also the case for some of the operators we've seen, e.g., \texttt{object[i]}, which just calls \texttt{object.\_\_getitem\_\_(i)} behind the scenes, and \texttt{object + 1} becomes \texttt{object.\_\_add\_\_(1)}.}.
-        \begin{pythoncode}
-  number_of_players = len(lottery_players)
-  print 'Team 1: '
-  print lottery_players[:number_of_players / 2]
-  print 'Team 2: '
-  print lottery_players[number_of_players / 2:]
-        \end{pythoncode}
+        \mint{python}|print random.choice(lottery_players)|
     \end{itemize}
   \end{block}
 \end{frame}
