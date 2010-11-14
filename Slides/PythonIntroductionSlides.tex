@@ -123,7 +123,7 @@
 \begin{frame}
   \frametitle{Principal Principles of Programming (4)}
   \centering
-  \includegraphics[width=290px]{LinuxKernelMap.png}
+  \includegraphics[width=260px]{LinuxKernelMap.png}
   \begin{flushright} 
     \footnotesize -- Wikipedia
   \end{flushright}
@@ -143,11 +143,11 @@
 
 \begin{frame}
   \frametitle{Principal Principles of Programming (6)}
+  \centering
+  \vspace{10px}
+  \includegraphics[width=125px]{Brainstorm.jpg}
+  \vspace{5px}
   \begin{block}{Motivating by Example}
-    \centering
-    \vspace{10px}
-    \includegraphics[width=125px]{Brainstorm.jpg}
-    \vspace{5px}
     \begin{itemize}
       \item Think of an application you use frequently (a desktop application, a website, a phone application, etc.).
       \item What are the application and user operations we would want to support, and what are their requirements?
@@ -232,8 +232,8 @@
   \frametitle{The Interpreter (2)}
   \begin{block}{The \texttt{print} Function}
     \begin{itemize}
-      \item Strings are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular string).
-        e.g., if you want a string to have a contraction, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
+      \item \texttt{string}s are surrounded by single (') or double (``) quotes, which are equivalent (but you must use the same type for any particular \texttt{string}).
+        e.g., if you want a \texttt{string} to have a contraction, you can use double quotes to surround it, like \texttt{"The white whale mustn't breach, Moby is waiting."}.
       \item \texttt{print} is a core Python function, which by default outputs text to the screen. It's somewhat special, in that parentheses are optional when using (calling) it.
     \end{itemize}
   \end{block}
@@ -371,7 +371,7 @@
   \frametitle{Functions for Fame and Fortune (and Baseball) (2)}
   \begin{block}{A Few More Examples}
     \begin{itemize}
-      \item Change a string to all uppercase:
+      \item Change a \texttt{string} to all uppercase:
         \mint{python}|teams[0].upper() # 'MONTREAL EXPOS'|
       \item Add an entry to a list:
         \mint{python}|teams.append('Krypton Krushers')|
@@ -416,8 +416,8 @@
     return numerator / float(denominator)
         \end{pythoncode}
         \normalsize
-      \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}).
-      \item We use \texttt{float()} here to account for Python's division behavior, as explained earlier.
+      \item Functions exist to coerce \texttt{string}s like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. the \texttt{int} and \texttt{float} functions), or numbers into the corresponding \texttt{string} (c.f. the \texttt{str} function).
+      \item We use the \texttt{float} functions here to account for Python's division behavior, as explained earlier.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -441,7 +441,7 @@
       \begin{pythoncode}
   for item in collection_of_items:
     do()
-    stuff = 2 + item
+    stuff = 2 + some + items
       \end{pythoncode}
     \end{itemize}
   \end{block}
@@ -582,7 +582,7 @@
       \item Get the user to enter his or her height in inches and weight in pounds.
       \item Compute his or her \textbf{body mass index} (BMI\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.}) as: 
         \mint{python}|703 * weight / h ** 2|
-      \item Remember to use \texttt{float()} to convert the user's strings to \texttt{float}s.
+      \item Remember to use the \texttt{float} function to convert the user's \texttt{string}s to \texttt{float}s.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -627,11 +627,11 @@
       \item These attributes are loaded into the cash machine when you scan the card, and are available to the software as a dictionary.
         \begin{pythoncode}
   customer_info = {
-    'name': 'Rob Tirrell',
-    'email': 'rpt@stanford.edu',
-    'age': 24,
+    'name': 'GI Jane',
+    'email': 'jane@army.mil',
+    'age': 38,
     'blood_sugar': 5.0 # mmol / L
-    'likes_dark_chocolate': False,
+    'likes_dark_chocolate': True,
     'astrological_sign': 'Gemini'
   }
         \end{pythoncode}
@@ -643,7 +643,7 @@
   \frametitle{Case Study: The Candy Shoppe (3)}
   \begin{block}{Implementation}
     \begin{itemize}
-      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return} 24.
+      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return 24}.
       \item We can make comparisons with dictionary values directly, without storing the value in a separate variable:
         \begin{pythoncode}
   if customer_info['age'] > 65:
@@ -837,7 +837,7 @@
       Type \texttt{python random\_writer.py}, and it'll ask you to input the name of the file containing the document to mangle.
       \texttt{Middlemarch.txt} is available in the same directory as the code.
       You can find other books and corpuses at Project Gutenberg (\href{http://www.gutenberg.org/wiki/Main\_Page}{http://www.gutenberg.org/wiki/Main\_Page}).
-    \item The file is reasonably well-commented, and introduces a few advanced features: list comprehensions and lambdas.
+    \item The file is reasonably well-commented, and introduces a few advanced features: \texttt{list} comprehensions and \texttt{lambda}s.
   \end{itemize}
 \end{frame}
 
@@ -857,7 +857,15 @@
   \begin{itemize}
     \item We haven't even nearly covered the standard library (the stuff that comes with every version of Python). 
       Honestly, I haven't used or even heard of most of it.
-    \item Python has builtin modules for scraping from the internet (\texttt{HTMLParser}), (extremely advanced) string searching and manipulation (the strange world of regular expressions, in the \texttt{re} module), creating, deleting and managing files and directories (\texttt{os} and \texttt{shutil}), creating and extracting compressed files (\texttt{gzip}, \texttt{bz2}, \texttt{zipfile}, \texttt{tarfile}), interacting with FTP servers (\texttt{ftplib}), and on and on $\rightarrow \infty$.
+    \item Python has builtin modules for:
+    \begin{itemize} 
+      \item Scraping from the internet (\texttt{HTMLParser}).
+      \item (Extremely advanced) \texttt{string} searching and manipulation (the strange world of regular expressions, in the \texttt{re} module).
+      \item Creating, deleting and managing files and directories (\texttt{os} and \texttt{shutil}).
+      \item Creating and extracting compressed files (\texttt{gzip}, \texttt{bz2}, \texttt{zipfile}, \texttt{tarfile}).
+      \item Interacting with FTP servers (\texttt{ftplib}).
+      \item And so on and on $\rightarrow \infty$.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
