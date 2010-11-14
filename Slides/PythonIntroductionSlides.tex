@@ -1,6 +1,6 @@
 \documentclass[10pt]{beamer}
 
-\usepackage{helvet}
+\usepackage{palatino}
 
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -16,6 +16,7 @@
 
 
 \usetheme{Luebeck}
+\usecolortheme{lily}
 \hypersetup{
   pdftitle = \title,
   pdfauthor = {Rob Tirrell},
@@ -30,11 +31,16 @@
 % Get rid of navigation symbols.
 \setbeamertemplate{navigation symbols}{}
 
+\setbeamersize{
+  text margin right = 15px,
+  text margin left = 15px
+}
+
 \renewcommand{\theFancyVerbLine}{
   \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
 \newminted{python}{mathescape, linenos, numbersep=8pt, gobble=0, frame=lines, framesep=2mm}
 
-\usemintedstyle{tango}
+\usemintedstyle{borland}
 
 \begin{document}
 \begin{frame}
@@ -117,7 +123,7 @@
 \begin{frame}
   \frametitle{Principal Principles of Programming (4)}
   \centering
-  \includegraphics[width=300px]{LinuxKernelMap.png}
+  \includegraphics[width=290px]{LinuxKernelMap.png}
   \begin{flushright} 
     \footnotesize -- Wikipedia
   \end{flushright}
@@ -369,7 +375,7 @@
         \mint{python}|teams[0].upper() # 'MONTREAL EXPOS'|
       \item Add an entry to a list:
         \mint{python}|teams.append('Krypton Krushers')|
-      \item Compute the sum of a list:
+      \item Compute the sum of a list using Python's builtin \texttt{sum()}:
         \mint{python}|sum(player['h'], player['bb']) # 322|
     \end{itemize}
   \end{block}
@@ -411,13 +417,13 @@
         \end{pythoncode}
         \normalsize
       \item Functions exist to coerce strings like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. \texttt{int()} and \texttt{float()}), or numbers into the corresponding string (c.f. \texttt{str()}).
-      \item We use \texttt{float} here to account for Python's division behavior, as explained earlier.
+      \item We use \texttt{float()} here to account for Python's division behavior, as explained earlier.
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{For Loops}
+  \frametitle{Loops (1)}
   \begin{block}{Loopball}
     \begin{itemize}
       \item Suppose we have all of the players in baseball stored in a \texttt{list} (the elements of the \texttt{list} are \texttt{dict}ionaries representing players).
@@ -427,15 +433,42 @@
   for player in players:
     sp = calculate_sp(player)
     obp = calculate_obp(player)
-    print player['name']
     print 'OBP: ' + str(obp)
     print 'SP: ' + str(sp)
     print 'OPS: ' + str(obp + sp)
         \end{pythoncode}
+      \item Then the basic syntax is:
+      \begin{pythoncode}
+  for item in collection_of_items:
+    do()
+    stuff = 2 + item
+      \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Loops (2)}
+  \begin{block}{Whileball}
+    \begin{itemize}
+      \item Another type of loop is available to us: the \texttt{while} loop:
+        \begin{pythoncode}
+  prompt = 'Enter your batting average: '
+  batting_average = 0
+  while batting_average <= 0.350:
+    # Convert the string from the user into a float.
+    batting_average = float(raw_input(prompt))
+  print 'Baseball Superstar!'
+        \end{pythoncode}
+      \item Then the basic syntax is:
+        \begin{pythoncode}
+  while some_condition_is_true:
+    perform()
+    any_number = of_operations
+        \end{pythoncode}
+    \end{itemize}
+  \end{block}
+\end{frame}
 
 
 \begin{frame}[fragile]
@@ -475,7 +508,7 @@
   else:
     print 'Back to the grind, peasant.'
         \end{pythoncode}
-      BBQ Day!
+      Must be your birthday!
     \end{itemize}
   \end{block}
 \end{frame}
@@ -503,29 +536,73 @@
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{if-elif-else}
+  We can also try to imagine this in a more intuitive fashion, as a hierarchical list of instructions.
+  Then it's much more clear what the logical flow is. \\
+  \vspace{10px}
+  \large
+  \textbf{\texttt{strength >= 15}}?
+  \normalsize
+  \begin{block}{\textbf{Yes}}
+    You're King Arthur.
+  \end{block}
+  \vspace{10px}
+  \begin{block}{\textbf{No}}
+    \indent \texttt{strength >= 10}?
+    \begin{itemize}
+      \item \textbf{Yes}: to the mines.
+      \item \textbf{No}: not even close.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Exercise 1}
   \begin{block}{Odd or Even?}
-    You can get the user to enter an input number as follows:
-    \begin{pythoncode}
+    \begin{itemize}
+      \item The modulus operator \texttt{\%} gives you the remainder of a division of two \texttt{int}egers.
+        \begin{pythoncode}
+  10 % 3 # The remainder when dividing 10 by 3 is 1.
+  4 % 2 # The remainder when dividing 4 by 2 is 0.
+        \end{pythoncode}
+
+      \item You can get the user to enter an input number as follows:
+        \begin{pythoncode}
   user_number = int(raw_input('Enter a number: '))
-    \end{pythoncode}
-    Write a program that asks the user to input a number, then prints out if the number is odd or even.
+        \end{pythoncode}
+        Write a program that asks the user to input a number, then prints out if the number is odd or even.
+    \end{itemize}
   \end{block}
 \end{frame}
     
 \begin{frame}
   \frametitle{Exercise 2}
   \begin{block}{Am I Overweight?}
-    Get the user to enter their height in inches and weight in pounds.
-    Compute his or her \textbf{body mass index} (BMI\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.} as follows: $\frac{w * 703}{h ^ 2}$.
+    \begin{itemize}
+      \item Get the user to enter his or her height in inches and weight in pounds.
+      \item Compute his or her \textbf{body mass index} (BMI\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.}) as: 
+        \mint{python}|703 * weight / h ** 2|
+      \item Remember to use \texttt{float()} to convert the user's strings to \texttt{float}s.
+    \end{itemize}
   \end{block}
 \end{frame}
     
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Exercise 3}
   \begin{block}{Odd and Even Averages}
-    Get the user to keep entering numbers until they enter a 0.
-    Then compute the average of all even numbers the user entered, and the average of all odd numbers the user entered.
+    \begin{itemize}
+      \item Get the user to keep entering numbers until he or she enters a 0.
+        Compute the average of all of the numbers the user entered.
+      \item Remember \texttt{append} and \texttt{while}!
+        Using two builtin functions we've encountered, you can easily compute the average:
+        \footnotesize
+        \begin{pythoncode}
+  def average(list_of_numbers):
+    # Make sure that the length is calculated as a float to
+    # prevent Python from performing truncating integer division.
+    return sum(list_of_numbers) / float(len(list_of_numbers))
+        \end{pythoncode}
+    \end{itemize} 
   \end{block}
 \end{frame}
     
@@ -614,43 +691,123 @@
     \end{itemize}
   \end{block}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Importing and Using Modules (3)}
+  \begin{block}{Another Way}
+    \begin{itemize}
+      \item We can also pick a random player by index in the list:
+      \mint{python}|random.randrange(0, len(lottery_players))|
+      There are a few things to note here.
+      \item The \texttt{len}gth of the list is one greater than the last position you can index to.
+      The last is then:
+        \mint{python}|lottery_players[len(lottery_players) - 1]|
+      \item Since \texttt{randrange} generates a number exclusive of its second argument, we can just use the \texttt{len}gth as the second argument.\footnote{Actually, we can also omit \texttt{0}, \texttt{randrange} or \texttt{randint} with one argument are assumed to start at \texttt{0}.}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Importing and Using Modules (3)}
+  \begin{block}{Top Three}
+    For example, we could use this to pick a list of three winners:
+    \begin{pythoncode}
+  winners = []
+  while len(winners) < 3:
+    windex = random.randrange(0, len(lottery_players)
+    winners.append(lottery_players[windex])
+    lottery_players.pop(windex)
+    \end{pythoncode}
+  \end{block}
+\end{frame}
     
 \begin{frame}
-  \frametitle{A Fun Project: A Twitter Reader!}
+  \frametitle{Three Twitter Trials}
   \begin{itemize}
-    \item We will use a simple library to read any public Twitter feed.
-    \item Download the smalltweetlib.py file from \href{https://github.com/rtirrell/PythonIntroduction}{https://github.com/rtirrell/PythonIntroduction}.
-    \item Create a new file, adding an import at the beginning: 
+    \item We will use a simple library\footnote{The internals of the file are omitted from discussion today. They're slightly more advanced than we can handle. Besides, most of the time, you wouldn't want to write that sort of code yourself. Use a library!} to read any public Twitter feed.
+    Download the \texttt{smalltweetlib.py} file from 
+      \footnotesize \href{https://github.com/rtirrell/PythonIntroduction/raw/master/Code/twitter/smalltweetlib.py}{https://github.com/rtirrell/PythonIntroduction/raw/master/Code/twitter/smalltweetlib.py}.
+    \normalsize
+    \item Create a \texttt{.py} file in the directory you save \texttt{smalltweetlib.py} to, and import \texttt{get\_tweets} at the top: 
       \mint{python}|from smalltweetlib import get_tweets|
-    \item This provides a function which \texttt{return}s a list of \texttt{dict}ionary objects with text and date attributes.
+      This provides a function \texttt{get\_tweets} which \texttt{return}s a list of \texttt{dict}ionary objects with text and date attributes.
     \item To get started, try this simple command: 
       \mint{python}|print get_tweets('cnn')|
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{A Twitter Reader: Your First Task}
-  \begin{itemize}
-    \item Print the tweets from any user (for example, \texttt{'cnn'}, or any Twitter user you choose) in a nice format on screen.
-    \item Examine the output from \texttt{get\_tweets} and decide how you'd like to display it.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{A Twitter Reader: Your Second Task}
-  \begin{itemize}
-    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in that nice format on screen.
-    \item Hint: try a function and a loop!
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{A Twitter Reader: Your Third and Final Task}
-  \begin{itemize}
-    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in a nice format on screen in a SORTED list.
-    \item Try running \texttt{smalltweetlib.py} directly.
+      You can also run it directly (i.e., \texttt{python smalltweetlib.py}).
       It will output tweets from CNN and the NY Times, ordered by date.
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Your First Trial}
+  \begin{itemize}
+    \item Print a tweet from any user (for example, \texttt{'cnn'}, or any Twitter user you choose) in a nice format on screen.
+    \item Examine the output from \texttt{get\_tweets} -- it's a \texttt{list}, so you'll want to give a single tweet as the argument to your formatting and printing function. 
+      \footnotesize
+      \begin{pythoncode}
+  tweets = get_tweets('cnn')
+  tweets[0]
+  # An example tweet dictionary:
+  {
+    'date': u'20101113000752', 
+    'text': u'robtirrell: @zimmeee sup dawg how was lunch?'
+  }
+  print_formatted_tweet(tweets[0])
+      \end{pythoncode}
+        
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Your Second Trial}
+  \begin{itemize}
+    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in that nice format on screen.
+    \item Hint: use function you \texttt{def}ined above and a loop!
+    \item<2> Spoiled:
+      \begin{pythoncode}
+  tweets = get_tweets('THE_REAL_SHAQ')
+  for tweet in tweets:
+    print_formatted_tweet(tweet)
+      \end{pythoncode}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Your Third and Final Trial}
+  \begin{itemize}
+    \item Display the tweets from a list of users in a nice format.
+      \begin{pythoncode}
+  # A list of tweeps: twitter peeps.
+  tweeps = [
+    'cnn',
+    'nytimes',
+    '50cent', # Vulgarity warning.
+  ]
+      \end{pythoncode}
+    \item Hint: use a loop inside a loop.
+      It's totally legit.
+      \footnotesize
+      \begin{pythoncode}
+  # A list of lists of major airports in NY, CA and IL.
+  state_airports = [
+    ['LAG', 'JFK', 'ALB'], 
+    ['LAX', 'SFO'], ['MDW', 'ORD']
+  ]
+  for state in state_airports:
+    for airport in state:
+      print airport
+      \end{pythoncode}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{As Simple As...}
+  \begin{pythoncode}
+  for user in tweeps:
+    tweets = get_tweets(tweep)
+    for tweet in tweets:
+      print_formatted_tweet(tweet)
+  \end{pythoncode}
 \end{frame}
 
 \begin{frame}
@@ -673,10 +830,31 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{So We've Sold You on Python, What's Next? (1)}
+  \frametitle{random\_writer.py}
   \begin{itemize}
-    \item There are \textbf{tons} of freely-available resources on the internet to continuing experimenting and learning.
-    The best place to start is probably Dive Into Python 3 (\href{http://diveintopython3.org}{http://diveintopython3.org}) by Mark Pilgrim.  As the name indicates, it covers Python 3 (we are using 2.7, some things differ but most of what we've gone over is the same).
+    \item The file is available on the GitHub website.\footnote{Reminder: \href{https://github.com/rtirrell/PythonIntroduction/tree/master/Code/random\_writer/}{https://github.com/rtirrell/PythonIntroduction/tree/master/Code/random\_writer/}}
+    \item It is meant to be run from the command line.
+      Type \texttt{python random\_writer.py}, and it'll ask you to input the name of the file containing the document to mangle.
+      \texttt{Middlemarch.txt} is available in the same directory as the code.
+      You can find other books and corpuses at Project Gutenberg (\href{http://www.gutenberg.org/wiki/Main\_Page}{http://www.gutenberg.org/wiki/Main\_Page}).
+    \item The file is reasonably well-commented, and introduces a few advanced features: list comprehensions and lambdas.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{So We've Sold You on Python, What's Next? (1)}
+    There are \textbf{tons} of freely-available resources on the internet to continuing experimenting and learning. 
+      Two books that provide particularly good starting points:
+  \begin{itemize}
+    \item Anshul endorses \emph{A Byte of Python} (\href{http://swaroopch.com/notes/Python}{http://swaroopch.com/notes/Python}).
+    \item Rob endorses \emph{Dive Into Python 3}, a slightly more advanced introduction (\href{http://diveintopython3.org}{http://diveintopython3.org}).  As the name indicates, it covers Python 3 (we are using 2.7, some things differ but most of what we've gone over is the same).
+    There's also a \emph{Dive into Python}   covering 2.4, but that's getting a bit dated.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{So We've Sold You on Python, What's Next? (2)}
+  \begin{itemize}
     \item We haven't even nearly covered the standard library (the stuff that comes with every version of Python). 
       Honestly, I haven't used or even heard of most of it.
     \item Python has builtin modules for scraping from the internet (\texttt{HTMLParser}), (extremely advanced) string searching and manipulation (the strange world of regular expressions, in the \texttt{re} module), creating, deleting and managing files and directories (\texttt{os} and \texttt{shutil}), creating and extracting compressed files (\texttt{gzip}, \texttt{bz2}, \texttt{zipfile}, \texttt{tarfile}), interacting with FTP servers (\texttt{ftplib}), and on and on $\rightarrow \infty$.
@@ -684,7 +862,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{So We've Sold You on Python, What's Next? (2)}
+  \frametitle{So We've Sold You on Python, What's Next? (3)}
   Stepping away from builtin functionality, there are many other mature libraries in the wild:
   \begin{itemize}
     \item If you want to write websites, check out Google's App Engine (\href{http://code.google.com/appengine/}{http://code.google.com/appengine/}).  It provides free hosting services and holds your hand along the way (that's a good thing!).  For more advanced websites, look into the Django Project (\href{http://www.djangoproject.com/}{http://www.djangoproject.com/}) (App Engine is actually based on Django). 
@@ -695,7 +873,7 @@
 \begin{frame}
   \frametitle{... And a Universe of Other Languages}
   \begin{center}
-    \includegraphics[width=300px]{ProgrammingLanguagesPoster-AnnotatedCropped.png} \\
+    \includegraphics[width=330px]{ProgrammingLanguagesPoster-AnnotatedCropped.png} \\
     \tiny 
     Image credit: O'Reilly (\href{http://oreilly.com/news/graphics/prog\_lang\_poster.pdf}{http://oreilly.com/news/graphics/prog\_lang\_poster.pdf})
   \end{center}
