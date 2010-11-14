@@ -102,6 +102,8 @@ def generate(filename):
   # Initialize output to be an empty string.
   output = ''
 
+  # Keep going until we've generated OUTPUT_SIZE characters (or until we exit
+  # manually).
   while len(output) < OUTPUT_SIZE:
 
     # If we encounter a chunk we don't have following character(s) for, it must
