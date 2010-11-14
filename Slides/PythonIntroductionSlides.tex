@@ -197,8 +197,8 @@
   \frametitle{Good for Them, What's in it for You?}
   \begin{block}{Power}
     \begin{itemize}
-      \item Python facilitates rapid development.
-        It comes with a huge collection of software (libraries) for many purposes.
+      \item Python facilitates rapid development (quickly going from idea to implementation).
+        It comes with a huge collection of software (libraries) for many purposes, and external libraries exist for many others.
       \item There is a sizeable, vibrant and very helpful Python community/ecosystem, should you run into trouble or seek advice.
     \end{itemize}
   \end{block}
@@ -208,7 +208,6 @@
       \item It actually takes some effort to write difficult-to-understand programs.
     \end{itemize}
   \end{block}
-%  Before we can reveal Python, let's consider the high-level \textbf{process and principles of programming} (trust us, we know they're abstract and seemingly useless, but it's critical to really get what they mean).
 \end{frame}
 
 \begin{frame}
@@ -222,8 +221,8 @@
   \end{block}
   \begin{block}{IDLE}
     \begin{itemize}
-      \item IDLE is Python's interpreter shell, which we'll use to walk through examples throughout the course.
-      \item For those of you with Macs, you can open a Terminal and launch Python by typing \texttt{python}.
+      \item IDLE is Python's official graphical interpreter, which we'll use to walk through examples throughout the course.
+      \item For those of you with Macs, you can open a Terminal and launch a console interpreter by typing \texttt{python}.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -238,12 +237,12 @@
     \end{itemize}
   \end{block}
   \begin{block}{A Longstanding Tradition}
-      Three equivalent \texttt{'Hello, World!'}s:
-      \begin{pythoncode}
+    Three equivalent \texttt{'Hello, World!'}s:
+    \begin{pythoncode}
   print 'Hello, World!'
   print "Hello, World!"
   print("Hello, World!")
-      \end{pythoncode}
+    \end{pythoncode}
   \end{block}
 \end{frame}
 
@@ -264,13 +263,13 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{The Interpreter (4)}
   \begin{block}{Still Balling}
     \begin{itemize}
-      \item A player's \textbf{slugging percentage} is calculated as \texttt{(singles + 2 * doubles + 3 * triples + 4 * homers) / at bats}.
-        Basically, the numerator is the number of bases that player moves as a result of his offense.
-      \item In \texttt{1920}, Babe Ruth appeared at the plate \texttt{458}\footnote{The divisor -- at bats -- needs to be a floating-point number, so enter it as \texttt{458.0}, otherwise Python will drop the fractional component of the result.  This behavior can be a pain, and has been changed in Python 3.} times, cranking out \texttt{73} singles, \texttt{36} doubles, \texttt{9} triples and \texttt{54} home runs.    
+      \item The number of bases a player moves as a result of his offense is calculated as:  
+      \mint{python}|singles + 2 * doubles + 3 * triples + 4 * homers|
+      \item In \texttt{1920}, Babe Ruth appeared at the plate \texttt{458} times, cranking out \texttt{73} singles, \texttt{36} doubles, \texttt{9} triples and \texttt{54} home runs.    
     \end{itemize}
   \end{block}
 \end{frame}
@@ -281,7 +280,7 @@
     \begin{itemize}
       \item It can be tedious to have to type out that expression every time.
         Luckily for us and our fingers, we can store the results of calculations in \textbf{variables} very simply in Python.
-      \item For example, \texttt{sp = (73 + 2 * 36 + 3 * 9 + 4 * 54) / 458.0}
+      \item For example, \mint{python}|bases = 73 + 2 * 36 + 3 * 9 + 4 * 54|
         If you mess up the numbers, you can always try again.
         The new value will replace the old one.
       \item Voil\`{a}! Try \texttt{print}ing the result.
@@ -290,18 +289,23 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{The Interpreter (6)}
   \begin{block}{Back to the Babe}
     \begin{itemize}
-      \item Another useful stat is \texttt{on-base percentage} (OBP), calculated as \texttt{(H + BB + HBP) / (AB + BB + HBP + SF)}.  
-        In English, \texttt{(hits + walks + hit by pitches) / (hits + walks + hit by pitches + sacrifice flies)}.
-      \item In 1920, the Babe had \texttt{172} hits, walked \texttt{150} times, was hit by \texttt{3} pitches, and had no sacrifice flies (and \texttt{458} at bats).
-        What was his OBP (hint: store this in a variable \texttt{obp})?
-      \item \textbf{On-base plus slugging} (OPS) is a summary statistic frequently used to quantify players' offensive contributions.
-        Since we have both of these measures already stored, calculating Ruth's OPS is as simple as \texttt{sp + obp}!
-      \item Hopefully this illustrates the value of saving the results of intermediate computation.
-        You'll thank yourself later.
+      \item Another useful statistic is \textbf{slugging percentage} (SP):    
+      \footnotesize
+      \begin{pythoncode}
+  (singles + 2 * doubles + 3 * triples + 4 * homers) / at_bats
+      \end{pythoncode}
+      \normalsize
+      \item Since we've already calculated the numerator --- the number of bases the player moves as a result of his offense --- it's trivial to calculate the slugging percentage.
+      \footnote{The divisor -- at bats -- needs to be a floating-point number, so enter it as \texttt{458.0}, otherwise Python will drop the fractional component of the result.  This behavior can be a pain, and has been changed in Python 3.}
+      \begin{pythoncode}
+  bases = 73 + 2 * 36 + 3 * 9 + 4 * 54
+  sp = bases / 458.0
+  print sp
+      \end{pythoncode}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -336,7 +340,7 @@
   \begin{block}{More Advanced Datatypes}
     \begin{itemize}
       \item Obviously, more complex programs require more complex datatypes (also referred to as 'data structures').
-      \item The two most important in Python are the \texttt{list} and \texttt{dict} (dictionary).
+      \item The most important in Python are \texttt{list}s and \texttt{dict}s (dictionaries).
         \begin{pythoncode}
   teams = [
     'Montreal Expos', 'Washington Nationals',
@@ -373,10 +377,12 @@
     \begin{itemize}
       \item Change a \texttt{string} to all uppercase:
         \mint{python}|teams[0].upper() # 'MONTREAL EXPOS'|
-      \item Add an entry to a list:
+      \item Add an entry to a \texttt{list}:
         \mint{python}|teams.append('Krypton Krushers')|
-      \item Compute the sum of a list using Python's builtin \texttt{sum()}:
+      \item Compute the \texttt{sum} of a \texttt{list} using the builtin \texttt{sum} function:
         \mint{python}|sum(player['h'], player['bb']) # 322|
+      \item \texttt{return} the \texttt{len}gth of a collection:
+        \mint{python}|len(teams) # 4, or 5 counting the Krushers.|
     \end{itemize}
   \end{block}
 \end{frame}
@@ -387,7 +393,7 @@
     \begin{itemize}
       \item The \texttt{def} keyword is used to create new functions.
       \item Functions always \texttt{return} a value. 
-        Functions which do not explicitly \texttt{return} a value (have no \texttt{return} statement) implicitly \texttt{return None}.
+        Functions not explicitly \texttt{return}ing a value (have no \texttt{return} statement) implicitly \texttt{return None}.
         \begin{pythoncode}
   # This function has no parameters and returns None.
   def test_func():
@@ -401,21 +407,16 @@
   \frametitle{Functions for Fame and Fortune (and Baseball) (4)}
   \begin{block}{Funcball}
     \begin{itemize}
-      \item If we represent a player as in the \texttt{dict}ionary above, we can then write functions that calculates any player's stats:
-        \footnotesize
-        \begin{pythoncode}
-  def calculate_sp(player):
-    bases = player['h'] + 2 * player['2b'] + \
+      \item If we represent a player as in the \texttt{dict}ionary above, we can then write functions that calculates any player's stats.\footnote{The \texttt{'\textbackslash'} just allows us to continue an expression on the next line, so it doesn't run off of the slide :).}
+      \footnotesize
+      \begin{pythoncode}
+  def calculate_bases(player)
+    return player['h'] + 2 * player['2b'] + \
       3 * player['3b'] + 4 * player['hr']
-    return bases / float(player['ab'])
-
-  def calculate_obp(player):
-    numerator = player['h'] + player['bb'] + player['hbp']
-    denominator = player['ab'] + player['bb'] + \
-      player['hbp'] + player['sf']
-    return numerator / float(denominator)
-        \end{pythoncode}
-        \normalsize
+  def calculate_sp(player):
+    return calculate_bases(player) / float(player['ab'])
+      \end{pythoncode}
+      \normalsize
       \item Functions exist to coerce \texttt{string}s like \texttt{'1024'} into the corresponding floating-point or integer numbers (c.f. the \texttt{int} and \texttt{float} functions), or numbers into the corresponding \texttt{string} (c.f. the \texttt{str} function).
       \item We use the \texttt{float} functions here to account for Python's division behavior, as explained earlier.
     \end{itemize}
@@ -432,10 +433,8 @@
         \begin{pythoncode}
   for player in players:
     sp = calculate_sp(player)
-    obp = calculate_obp(player)
-    print 'OBP: ' + str(obp)
-    print 'SP: ' + str(sp)
-    print 'OPS: ' + str(obp + sp)
+    print player['name']
+    print 'Slugging percentage: ' + str(sp)
         \end{pythoncode}
       \item Then the basic syntax is:
       \begin{pythoncode}
@@ -458,7 +457,8 @@
   while batting_average <= 0.350:
     # Convert the string from the user into a float.
     batting_average = float(raw_input(prompt))
-  print 'Baseball Superstar!'
+  print 'Your average is >= 0.350.'
+  print 'But you already knew that...'
         \end{pythoncode}
       \item Then the basic syntax is:
         \begin{pythoncode}
@@ -470,12 +470,38 @@
   \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Loops (3)}
+  \begin{block}{ABA: Average Batting Average}
+    \begin{itemize}
+      \item How about a more useful example:
+        \begin{pythoncode}
+  print 'Give me some averages!'
+  print "Enter a negative number when you're done."
+
+  prompt = 'Enter a batting average: '
+  batting_average = 1
+  batting_averages = []
+
+  while batting_average > 0:
+    # Convert the string from the user into a float.
+    batting_average = float(raw_input(prompt))
+    batting_averages.append(batting_average)
+
+  print sum(batting_averages) / len(batting_averages)
+        \end{pythoncode}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
 
 \begin{frame}[fragile]
   \frametitle{Rolling Your Own Classes}
   \begin{block}{Custom-Created Classes}
     \begin{itemize}
-      \item We can also write custom classes with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary data and have a set of methods to manipulate it.\footnote{\textbf{Functions} versus \textbf{methods}: \texttt{say\_hello} is an example of a \texttt{method}, it's associated with \texttt{MyTestClass} objects.}
+      \item We can also write custom \texttt{class}es with the \texttt{class} keyword, with which we can define datatypes (or data structures) that store arbitrary data and have a set of methods to manipulate it.\footnote{\textbf{Functions} versus \textbf{methods}: \texttt{say\_hello} is an example of a \texttt{method}, it's associated with \texttt{MyTestClass} objects.}
         \footnotesize
         \begin{pythoncode}
   class MyTestClass:
@@ -488,8 +514,8 @@
   # 'Rocko says hi to Clarissa'
         \end{pythoncode}
       \normalsize
-      \item The ability to extend the language with our own classes is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
-        Any book on Python will have a more thorough treatment of classes.
+      \item The ability to extend the language with our own \texttt{class}es is extremely useful, but for concerns of time we'll just dangle the idea in front of you and leave it that.
+        Any book on Python will have a more thorough treatment of \texttt{class}es.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -500,15 +526,15 @@
   \begin{block}{Truth Testing}
     \begin{itemize}
       \item Few programs are just a straight pipeline of unbiased transformations to data -- most of the time, we'll want to branch out and make decisions based on input.
-      \item Python has the \texttt{if}, \texttt{elif} and \texttt{else} keywords that provide this ability.
-        \begin{pythoncode}
+      \item Python has \texttt{if}, \texttt{elif} and \texttt{else} keywords that provide this ability.
+      \begin{pythoncode}
   some_boolean = True
   if some_boolean:
     print 'Truly today is a special day!'
   else:
     print 'Back to the grind, peasant.'
-        \end{pythoncode}
-      Must be your birthday!
+      \end{pythoncode}
+      It's a special day!
     \end{itemize}
   \end{block}
 \end{frame}
@@ -519,7 +545,7 @@
     \begin{itemize}
       \item We can also use \texttt{==}, \texttt{$<$}, \texttt{$<$=}, and so on.
       \item The instructions following an \texttt{elif} keyword are only triggered if no previous conditions are met and the \texttt{elif} condition is.
-        \begin{pythoncode}
+      \begin{pythoncode}
   strength = 15
   if strength >= 15:
     print 'You pull the sword from the stone.'
@@ -529,8 +555,8 @@
     print 'But you were born to work in the mines.'
   else:
     print 'Nope! Not even close.'
-        \end{pythoncode}
-      Looks like it's deep, dark and dirty for this guy.
+      \end{pythoncode}
+      All hail the king...
     \end{itemize}
   \end{block}
 \end{frame}
@@ -570,7 +596,7 @@
         \begin{pythoncode}
   user_number = int(raw_input('Enter a number: '))
         \end{pythoncode}
-        Write a program that asks the user to input a number, then prints out if the number is odd or even.
+        Write a program that asks the user to input a number, then \texttt{print}s out if the number is odd or even.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -580,7 +606,7 @@
   \begin{block}{Am I Overweight?}
     \begin{itemize}
       \item Get the user to enter his or her height in inches and weight in pounds.
-      \item Compute his or her \textbf{body mass index} (BMI\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.}) as: 
+      \item Compute his or her \textbf{body mass index}\footnote{BMI's utility as a measure of health is somewhat limited -- it does not necessarily indicate fitness. For example, due to the mass of their muscles, professional athletes are often called 'overweight' by BMI.} (BMI) as: 
         \mint{python}|703 * weight / h ** 2|
       \item Remember to use the \texttt{float} function to convert the user's \texttt{string}s to \texttt{float}s.
     \end{itemize}
@@ -593,8 +619,10 @@
     \begin{itemize}
       \item Get the user to keep entering numbers until he or she enters a 0.
         Compute the average of all of the numbers the user entered.
-      \item Remember \texttt{append} and \texttt{while}!
-        Using two builtin functions we've encountered, you can easily compute the average:
+      \item Hint 1: remember the average of batting averages?
+        It'll look a lot like that.
+      \item Hint 2: use \texttt{append} and \texttt{while}!
+      \item Hint 3: use two builtin functions we've seen to easily compute the average, as we did with batting averages:
         \footnotesize
         \begin{pythoncode}
   def average(list_of_numbers):
@@ -624,7 +652,7 @@
   \begin{block}{Customer Information}
     \begin{itemize}
       \item Each customer's loyalty card has several attributes encoded in the magstripe.
-      \item These attributes are loaded into the cash machine when you scan the card, and are available to the software as a dictionary.
+      \item These attributes are loaded into the cash machine when you scan the card, and are available to the software as a \texttt{dict}ionary.
         \begin{pythoncode}
   customer_info = {
     'name': 'GI Jane',
@@ -643,8 +671,8 @@
   \frametitle{Case Study: The Candy Shoppe (3)}
   \begin{block}{Implementation}
     \begin{itemize}
-      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return 24}.
-      \item We can make comparisons with dictionary values directly, without storing the value in a separate variable:
+      \item Recall that we access dictionary values by their key, so for the above example, \texttt{customer\_info['age']} will \texttt{return 38}.
+      \item We can make comparisons with \texttt{dict}ionary values directly, without storing the value in a separate variable:
         \begin{pythoncode}
   if customer_info['age'] > 65:
     print 'Senior citizen discount!'
@@ -678,7 +706,7 @@
   \frametitle{Importing and Using Modules (2)}
   \begin{block}{Who's Feeling Lucky?!}
     \begin{itemize}
-      \item Let's use random to pick the winner of a lottery.
+      \item Let's use \texttt{random} to pick the winner of a lottery.
         First, define the players:
         \begin{pythoncode}
   lottery_players = [
@@ -696,10 +724,10 @@
   \frametitle{Importing and Using Modules (3)}
   \begin{block}{Another Way}
     \begin{itemize}
-      \item We can also pick a random player by index in the list:
+      \item We can also pick a random player by index in the \texttt{list}:
       \mint{python}|random.randrange(0, len(lottery_players))|
       There are a few things to note here.
-      \item The \texttt{len}gth of the list is one greater than the last position you can index to.
+      \item The \texttt{len}gth of the \texttt{list} is one greater than the last position you can index to.
       The last is then:
         \mint{python}|lottery_players[len(lottery_players) - 1]|
       \item Since \texttt{randrange} generates a number exclusive of its second argument, we can just use the \texttt{len}gth as the second argument.\footnote{Actually, we can also omit \texttt{0}, \texttt{randrange} or \texttt{randint} with one argument are assumed to start at \texttt{0}.}
@@ -710,7 +738,7 @@
 \begin{frame}[fragile]
   \frametitle{Importing and Using Modules (3)}
   \begin{block}{Top Three}
-    For example, we could use this to pick a list of three winners:
+    For example, we could use this to pick a \texttt{list} of three winners:
     \begin{pythoncode}
   winners = []
   while len(winners) < 3:
@@ -726,7 +754,7 @@
   \begin{itemize}
     \item We will use a simple library\footnote{The internals of the file are omitted from discussion today. They're slightly more advanced than we can handle. Besides, most of the time, you wouldn't want to write that sort of code yourself. Use a library!} to read any public Twitter feed.
     Download the \texttt{smalltweetlib.py} file from 
-      \footnotesize \href{https://github.com/rtirrell/PythonIntroduction/raw/master/Code/twitter/smalltweetlib.py}{https://github.com/rtirrell/PythonIntroduction/raw/master/Code/twitter/smalltweetlib.py}.
+      \footnotesize \href{https://github.com/rtirrell/PythonIntroduction/raw/master/Source/twitter/smalltweetlib.py}{https://github.com/rtirrell/PythonIntroduction/raw/master/Source/twitter/smalltweetlib.py}.
     \normalsize
     \item Create a \texttt{.py} file in the directory you save \texttt{smalltweetlib.py} to, and import \texttt{get\_tweets} at the top: 
       \mint{python}|from smalltweetlib import get_tweets|
@@ -741,8 +769,8 @@
 \begin{frame}[fragile]
   \frametitle{Your First Trial}
   \begin{itemize}
-    \item Print a tweet from any user (for example, \texttt{'cnn'}, or any Twitter user you choose) in a nice format on screen.
-    \item Examine the output from \texttt{get\_tweets} -- it's a \texttt{list}, so you'll want to give a single tweet as the argument to your formatting and printing function. 
+    \item \texttt{print} a tweet from any user (for example, \texttt{'cnn'}, or any Twitter user you choose) in a nice format on screen.
+    \item Examine the output from \texttt{get\_tweets} -- it's a \texttt{list}, so you'll want to give a single tweet as the argument to your formatting and \texttt{print}ing function. 
       \footnotesize
       \begin{pythoncode}
   tweets = get_tweets('cnn')
@@ -761,7 +789,7 @@
 \begin{frame}[fragile]
   \frametitle{Your Second Trial}
   \begin{itemize}
-    \item Display the tweets from a list of users (for example \texttt{'cnn'} and \texttt{'nytimes'}) in that nice format on screen.
+    \item Display the tweets from a user (for example \texttt{'CNN'} or \texttt{'NYTimes'}) in that nice format on screen.
     \item Hint: use function you \texttt{def}ined above and a loop!
     \item<2> Spoiled:
       \begin{pythoncode}
@@ -775,7 +803,7 @@
 \begin{frame}[fragile]
   \frametitle{Your Third and Final Trial}
   \begin{itemize}
-    \item Display the tweets from a list of users in a nice format.
+    \item Display the tweets from a \texttt{list} of users in a nice format.
       \begin{pythoncode}
   # A list of tweeps: twitter peeps.
   tweeps = [
@@ -832,7 +860,7 @@
 \begin{frame}
   \frametitle{random\_writer.py}
   \begin{itemize}
-    \item The file is available on the GitHub website.\footnote{Reminder: \href{https://github.com/rtirrell/PythonIntroduction/tree/master/Code/random\_writer/}{https://github.com/rtirrell/PythonIntroduction/tree/master/Code/random\_writer/}}
+    \item The file is available on the GitHub website.\footnote{Reminder: \href{https://github.com/rtirrell/PythonIntroduction/tree/master/Source/random\_writer/}{https://github.com/rtirrell/PythonIntroduction/tree/master/Source/random\_writer/}}
     \item It is meant to be run from the command line.
       Type \texttt{python random\_writer.py}, and it'll ask you to input the name of the file containing the document to mangle.
       \texttt{Middlemarch.txt} is available in the same directory as the code.
