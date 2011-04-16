@@ -1,0 +1,7 @@
+\frametitle {As Simple As...}
+  \begin{pythoncode}
+  for user in tweeps:
+    tweets = get_tweets(tweep)
+    for tweet in tweets:
+      print_formatted_tweet(tweet)
+  \end{pythoncode}
