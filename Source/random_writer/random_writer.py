@@ -19,7 +19,7 @@ import random
 # If we used value higher than 10 (but not too high), we might observe
 # significant portions of the input file (maybe sentence fragments or 
 # sentences) reproduced verbatim, but with their relative ordering changed.
-ORDER = 15
+ORDER = 3
 
 # How many characters we want to generate (maximum).
 OUTPUT_SIZE = 2000
