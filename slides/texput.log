@@ -1,0 +1,21 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/MacPorts 2010_0) (format=pdflatex 2010.11.10)  16 APR 2011 01:43
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**PythonIntroductionSlides.t
+
+! Emergency stop.
+<*> PythonIntroductionSlides.t
+                              
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 4 strings out of 495074
+ 136 string characters out of 3182081
+ 45058 words of memory out of 3000000
+ 3282 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 0i,0n,0p,1b,6s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
